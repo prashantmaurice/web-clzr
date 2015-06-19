@@ -1,16 +1,12 @@
 {
-  "author": "Josh David Miller",
-  "name": "ngbp",
-  "version": "0.3.2",
-  "homepage": "https://github.com/ngbp/ngbp",
-  "licenses": {
-    "type": "MIT",
-    "url": "https://raw.github.com/ngbp/ngbp/master/LICENSE"
-  },
-  "bugs": "https://github.com/ngbp/ngbp/issues",
+  "author": "Shahidh K Muhammed",
+  "name": "clozerrWeb",
+  "version": "0.1.4",
+  "homepage": "https://github.com/shahidhk/clozerr-web",
+  "bugs": "https://github.com/shahidhk/clozerr-web/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ngbp/ngbp.git"
+    "url": "git@github.com:shahidhk/clozerr-web.git"
   },
   "dependencies": {},
   "devDependencies": {
@@ -19,6 +15,7 @@
     "grunt-coffeelint": "~0.0.10",
     "grunt-contrib-clean": "^0.4.1",
     "grunt-contrib-coffee": "^0.7.0",
+    "grunt-contrib-connect": "^0.10.1",
     "grunt-contrib-concat": "^0.3.0",
     "grunt-contrib-copy": "^0.4.1",
     "grunt-contrib-jshint": "^0.4.3",

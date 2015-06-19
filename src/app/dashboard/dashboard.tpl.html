@@ -1,0 +1,21 @@
+ <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-lg')">
+    <md-toolbar class="md-medium-tall">
+        <span>Toolbar</span>
+    </md-toolbar>
+    <md-content layout="column" flex>
+        <span>Your sidenav</span>
+    </md-content>
+
+</md-sidenav>
+<div layout="column" flex id="content">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <!-- Add a toggleMenu function to your menuCtrl controller with the following in it
+              $mdSidenav('left').toggle(); -->
+            <i class="fa fa-bars pointer" ng-click="toggleMenu()" hide-gt-lg></i>
+            <h1 flex> &nbsp;Your App</h1>
+        </div>
+
+    </md-toolbar>
+    <md-content ui-view="dashboard-main" layout="column" flex></md-content>
+</div>

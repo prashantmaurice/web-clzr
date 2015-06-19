@@ -1,22 +1,22 @@
-angular.module( 'clozerrWeb.about', [
+angular.module( 'clozerrWeb.dashboard.home', [
   'ui.router',
   'placeholders'
 ])
 
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'about', {
-    url: '/about',
+  $stateProvider.state( 'dashboard.home', {
+    url: '/home',
     views: {
-      "main": {
-        controller: 'AboutCtrl',
-        templateUrl: 'about/about.tpl.html'
+      "dashboard-main": {
+        controller: 'DashboardHomeCtrl',
+        templateUrl: 'dashboard/home/home.tpl.html'
       }
     },
     data:{ pageTitle: 'What is It?' }
   });
 })
 
-.controller( 'AboutCtrl', function AboutCtrl( $scope ) {
+.controller( 'DashboardHomeCtrl', function DashboardHomeCtrl( $scope ) {
   // This is simple a demo for UI Boostrap.
   $scope.dropdownDemoItems = [
     "The first choice!",
