@@ -1,4 +1,5 @@
 @sidebarwidth : 300px;
+@sidebar-tablet-width : 60px;
 @logoheight : 65px;
 
 #wrapper {
@@ -104,37 +105,38 @@ i.fa.d {
   padding: 20px;
 }
 
-@media (max-width:767px) {
+@media (max-width:1025px) {
 
     #sidebar-wrapper .sidebar-nav span {
         display:none;
     }
 
     #wrapper {
-      padding-left: 50px;
+      padding-left: @sidebar-tablet-width + 30px;
     }
     
     #sidebar-wrapper {
-      left: 50px;
+      left: @sidebar-tablet-width;
      
     }
-
+    
   #sidebar-wrapper {
-    margin-left: -50px;
-    left: 50px;
-    width: 50px;
+    margin-left: -@sidebar-tablet-width;
+    left: @sidebar-tablet-width;
+    width: @sidebar-tablet-width;
+    padding-left: 20px; 
   }
 
   .sidebar-nav {
 
-    width: 50px;
+    width: @sidebar-tablet-width;
     padding-left: 0;
     text-align: center;
   }
 
   .sidebar-nav li {
     text-indent: 0px;
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .sidebar-nav > .sidebar-brand {
