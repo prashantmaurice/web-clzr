@@ -1,21 +1,66 @@
- <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-lg')">
-    <md-toolbar class="md-medium-tall">
-        <span>Toolbar</span>
-    </md-toolbar>
-    <md-content layout="column" flex>
-        <span>Your sidenav</span>
-    </md-content>
-
-</md-sidenav>
-<div layout="column" flex id="content">
-    <md-toolbar layout="row">
-        <div class="md-toolbar-tools">
-            <!-- Add a toggleMenu function to your menuCtrl controller with the following in it
-              $mdSidenav('left').toggle(); -->
-            <i class="fa fa-bars pointer" ng-click="toggleMenu()" hide-gt-lg></i>
-            <h1 flex> &nbsp;Your App</h1>
+<!-- <div class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle btn" ng-click="isCollapsed = !isCollapsed">
+                <i style="color:black;"  class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand">
+                Clozerr
+            </a>
         </div>
+        <div class="collapse navbar-collapse"  ng-class="!isCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <li class="active"><a>Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <ul class="nav pull-right navbar-nav">
+                    <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown">Michael Brandt <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/users/changePassword">Change Password</a></li>
+                    </ul>
+                </li>
+                <li><a href="/session/logout">Logout</a></li>
+            </ul>
+        </ul>
+        </div>
+    </div>
+</div>
+ -->
 
-    </md-toolbar>
-    <md-content ui-view="dashboard-main" layout="column" flex></md-content>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"><img class="brand-logo" src="assets/img/logo.png"></li>
+            <li ui-sref="dashboard.home" class="first-one"><a><i class="d fa fa-anchor"></i><span>Home</span></a></li>
+            <li><a ui-sref="dashboard.promote"><i class="d fa fa-bullhorn"></i><span>Promote</span></a></li>
+            <li><a ui-sref="dashboard.rewards"><i class="d fa fa-coffee"></i><span>Rewards</span></a></li>
+            <li><a ui-sref="dashboard.loyalty"><i class="d fa fa-calendar"></i><span>Loyalty Card</span></a></li>
+            <li><a ui-sref="dashboard.campaigns"><i class="d fa fa-bug"></i><span>Campaigns</span></a></li>
+            <li><a ui-sref="dashboard.analytics"><i class="d fa fa-cogs"></i><span>Analytics</span></a></li>
+            <li><a ui-sref="dashboard.clubmembers"><i class="d fa fa-eye"></i><span>Club members</span></a></li>
+            <li><a ui-sref="dashboard.profile"><i class="d fa fa-eye"></i><span>Profile</span></a></li>
+        </ul>
+    </div>
+    <!-- Page content -->
+    <!-- <div id="page-content-wrapper" ui-view="dashboard-main" class="container-fluid anim-in-out anim-fade" data-anim-speed="500" data-anim-sync="true"></div> -->
+
+    <div class="heading">
+        <div class="">
+          
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a>Home</a></li>
+                <li role="presentation"><a>Upgrade</a></li>
+                <li role="presentation"><a>Log out</a></li>
+            </ul>
+          
+          <h1 ng-bind="dashboardPageHeading">Dashboard</h1>
+          
+        </div>
+    </div>
+    <hr/>
+
+    <div id="page-content-wrapper"  class="container-fluid" data-anim-speed="500" data-anim-sync="true">
+        <div ui-view="dashboard-main"></div>
+    </div>
 </div>

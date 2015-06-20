@@ -1,14 +1,16 @@
 angular.module( 'clozerrWeb', [
+  'ngAnimate',
   'templates-app',
   'templates-common',
   'clozerrWeb.about',
   'clozerrWeb.dashboard',
   'ui.router',
-  'ngMaterial'
+  'anim-in-out',
+  'angular-loading-bar'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/dashboard' );
+  $urlRouterProvider.otherwise( '/dashboard/home' );
 })
 
 .run( function run () {
@@ -19,6 +21,7 @@ angular.module( 'clozerrWeb', [
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | clozerrWeb' ;
     }
+    $scope.dashboardPageHeading = toState.data.pageTitle;
   });
 })
 

@@ -1,0 +1,205 @@
+@sidebarwidth : 300px;
+@logoheight : 65px;
+
+#wrapper {
+  padding-left: @sidebarwidth;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -@sidebarwidth;
+  margin-top: 50px;
+  left: @sidebarwidth;
+  width: @sidebarwidth;
+  font-size: large;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: @sidebarwidth;
+  list-style: none;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+ul.sidebar-nav > li:not(.sidebar-brand){
+    padding-top: 15px;
+
+}
+
+ul.sidebar-nav > li.first-one {
+    padding-top: 30px;
+}
+
+i.fa.d {
+    padding-right: 15px;
+}
+
+.sidebar-nav li a {
+    color: black;
+    opacity: 0.5;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-nav li a:hover {
+    color: #000;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: @logoheight;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #000;
+  background: none;
+}
+
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.inset {
+  padding: 20px;
+}
+
+@media (max-width:767px) {
+
+    #sidebar-wrapper .sidebar-nav span {
+        display:none;
+    }
+
+    #wrapper {
+      padding-left: 50px;
+    }
+    
+    #sidebar-wrapper {
+      left: 50px;
+     
+    }
+
+  #sidebar-wrapper {
+    margin-left: -50px;
+    left: 50px;
+    width: 50px;
+  }
+
+  .sidebar-nav {
+
+    width: 50px;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .sidebar-nav li {
+    text-indent: 0px;
+    font-size: 22px;
+  }
+
+  .sidebar-nav > .sidebar-brand {
+    display: none;
+  }
+
+}
+
+
+.navbar-collapse , .navbar {
+    background-color: white;
+}
+
+.brand-logo {
+    max-height: @logoheight;
+}
+
+img.brand-logo {
+    padding-left: 20px;
+}
+
+.heading {
+  padding-top: 40px;
+}
+
+.gen-alert-box {
+  @header-color: #01a2e2;
+
+  min-height: 100px;
+  .logo {
+    font-size: 4.5em;
+    padding-left: 20px;
+    color: @header-color;
+  }
+  .content-header
+  {
+    font-size: 2em;
+    color: @header-color;
+  }
+  .content-body {
+    opacity: 0.7;
+  }
+}
+
+.middle-parent {
+  display: table;
+}
+
+.middle-child {
+  display: table-cell;
+    vertical-align: middle;
+}
+
+.vcenter {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.callout-center-text {
+  text-align: center;
+}
+
+.callout.callout-info {
+    background-color: #01354a !important;
+    border-left-width: 0px;
+}

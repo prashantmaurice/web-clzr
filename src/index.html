@@ -20,7 +20,7 @@
 
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
 
@@ -30,9 +30,9 @@
     <!-- it's stupid to have to load it here, but this is for the +1 button -->
     
   </head>
-  <body layout="column">
+  <body >
       
-    <div ui-view="main" layout="row" flex></div>
+    <div ui-view="main" class="wrapper"></div>
 
   
   </body>

@@ -1,7 +1,14 @@
 angular.module( 'clozerrWeb.dashboard', [
   'ui.router',
   'placeholders',
-  'clozerrWeb.dashboard.home'
+  'clozerrWeb.dashboard.home',
+  'clozerrWeb.dashboard.rewards',
+  'clozerrWeb.dashboard.loyalty',
+  'clozerrWeb.dashboard.campaigns',
+  'clozerrWeb.dashboard.clubmembers',
+  'clozerrWeb.dashboard.profile',
+  'clozerrWeb.dashboard.analytics',
+  'clozerrWeb.dashboard.promote'
 ])
 
 .config(function config( $stateProvider ) {
@@ -18,11 +25,10 @@ angular.module( 'clozerrWeb.dashboard', [
   });
 })
 
-.controller( 'DashboardCtrl', function DashboardCtrl( $scope, $mdSidenav ) {
-  // This is simple a demo for UI Boostrap.
-  $scope.toggleMenu = function() {
-    $mdSidenav('left').toggle();
-  };
+.controller( 'DashboardCtrl', function DashboardCtrl( $scope , $rootElement) {
+  // This is simple a demo for UI Boostrap. 
+   $scope.isCollapsed = true;
+   $rootElement.data("$$ngAnimateState").running = false; 
 })
 
 ;

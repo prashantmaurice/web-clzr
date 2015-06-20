@@ -12,7 +12,7 @@ angular.module( 'clozerrWeb.dashboard.home', [
         templateUrl: 'dashboard/home/home.tpl.html'
       }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'Home' }
   });
 })
 
