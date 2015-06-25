@@ -2,6 +2,8 @@ angular.module( 'clozerrWeb.dashboard', [
   'ui.router',
   'placeholders',
   'clozerrWeb.dashboard.home',
+  'clozerrWeb.dashboard.login',
+  'clozerrWeb.dashboard.logout',
   'clozerrWeb.dashboard.rewards',
   'clozerrWeb.dashboard.loyalty',
   'clozerrWeb.dashboard.campaigns',
@@ -21,7 +23,7 @@ angular.module( 'clozerrWeb.dashboard', [
         templateUrl: 'dashboard/dashboard.tpl.html'
       }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'Dashboard' }
   });
 })
 

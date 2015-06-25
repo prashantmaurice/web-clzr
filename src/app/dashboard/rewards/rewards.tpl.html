@@ -3,82 +3,317 @@
 	  <div class="info-box">
         <span class="info-box-icon bg-aqua"><i class="fa fa-gift"></i></span>
         <div class="info-box-content">
-          <span class="info-box-number">Keep them coming back for more!</span>
-          <span class="info-box-text">Create exciting rewards for your club.</span>
+          <span class="info-box-number">Keep them coming back for more !</span>
+          <span class="info-box-text">Create exciting rewards for your club</span>
         </div><!-- /.info-box-content -->
       </div>
 	</div>
 </div>
 
-
+<!-- Welcome Reward form -->
 <div class="box box-info ">
 	<div class="box-header with-border">
 	  <i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">WELCOME REWARD</div>
-	</div><!-- /.box-header -->
-	<!-- form start -->
-	<form class="form-horizontal">
-	  <div class="box-body body-align-left">
-	  <span>Recruit new club members and give them a warm welcome</span>
+	</div>
+	<div class="box-body body-align-left">
+		<form class="form-horizontal welcome-reward-form reward-form">
+		<fieldset>
 
-	    <div class="form-group">
-	      <label for="welcomeRewardExpiry" class="col-sm-3 control-label">Reward expires in</label>
-	      <div class="col-sm-9">
-	        <select id="welcomeRewardExpiry" class="form-control">
-	            <option>option 1</option>
-	            <option>option 2</option>
-	            <option>option 3</option>
-	            <option>option 4</option>
-	            <option>option 5</option>
-	          </select>
-	      </div>
-	    </div>
-	    <div class="form-group">
-	      <label for="welcomeRewardOffer" class="col-sm-3 control-label">Customers will get</label>
-	      <div class="col-sm-9">
-	        <textarea class="form-control" rows="3" id="welcomeRewardOffer" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
-	      </div>
-	    </div>
-	    
-	  </div><!-- /.box-body -->
-	  <div class="box-footer">
+		<!-- Form Name -->
+		<legend>Recruit new club members and give them a warm welcome</legend>
+
+		<!-- Multiple Radios (inline) -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="welcomeRewardOfferExpiry">Reward expires in</label>
+		  <div class="col-md-9"> 
+		    <label class="radio-inline" for="welcomeRewardOfferExpiry-0">
+		      <input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-0" value="hour" checked="checked">
+		      1 Hour
+		    </label> 
+		    <label class="radio-inline" for="welcomeRewardOfferExpiry-1">
+		      <input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-1" value="day">
+		      1 Day
+		    </label> 
+		    <label class="radio-inline" for="welcomeRewardOfferExpiry-2">
+		      <input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-2" value="month">
+		      1 Month
+		    </label> 
+		    <label class="radio-inline" for="welcomeRewardOfferExpiry-3">
+		      <input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-3" value="year">
+		      1 Year
+		    </label>
+		  </div>
+		</div>
+
+		<!-- Textarea -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="welcomeRewardOfferText">Customers will get</label>
+		  <div class="col-md-9">                     
+		    <textarea class="form-control" rows="3" id="welcomeRewardOfferText" name="welcomeRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+		  </div>
+		</div>
+
+		</fieldset>
+		</form>
+	</div>
+	<div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
 	    <button type="submit" class="btn btn-info pull-right">Save</button>
 	  </div><!-- /.box-footer -->
-	</form>
 </div>
+<!--/ Welcome Reward form -->
 
+<!-- Happy Hour Reward form -->
 <div class="box box-info ">
 	<div class="box-header with-border">
 	  <i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">HAPPY HOUR REWARD</div>
 	</div><!-- /.box-header -->
 	<!-- form start -->
-	<form class="form-horizontal">
 	  <div class="box-body body-align-left">
-	  <span>Recruit new club members and give them a warm welcome</span>
+	  		<form class="form-horizontal reward-form happy-hour-reward-form">
+				<fieldset>
 
-	    <div class="form-group">
-	      <label for="welcomeRewardExpiry" class="col-sm-3 control-label">Reward expires in</label>
-	      <div class="col-sm-9">
-	        <select id="welcomeRewardExpiry" class="form-control">
-	            <option>option 1</option>
-	            <option>option 2</option>
-	            <option>option 3</option>
-	            <option>option 4</option>
-	            <option>option 5</option>
-	          </select>
-	      </div>
-	    </div>
-	    <div class="form-group">
-	      <label for="welcomeRewardOffer" class="col-sm-3 control-label">Customers will get</label>
-	      <div class="col-sm-9">
-	        <textarea class="form-control" rows="3" id="welcomeRewardOffer" placeholder="Enter ..."></textarea>
-	      </div>
-	    </div>
-	    
+				<!-- Form Name -->
+				<legend>Incentivize your customers to come in during typically slow hours</legend>
+
+				<!-- Multiple Radios (inline) -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="happyHourRewardTimes">Select your slow hours</label>
+				  <div class="col-md-9"> 
+				    <label class="radio-inline" for="happyHourRewardTimes-0">
+				       <timepicker name="happyHourRewardTimes" id="happyHourRewardTimes-0" ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+				    </label> 
+				    <label class="radio-inline" for="happyHourRewardTimes-1">
+				       <timepicker name="happyHourRewardTimes" id="happyHourRewardTimes-1" ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+				    </label> 
+				  </div>
+				</div>
+
+				<!-- Multiple Radios (inline) -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="happyHourRewardDays">Select your slow days</label>
+				  <div class="col-md-9"> 
+				    <dl class="week-list" style="float:left;display:inline;">
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">M</button>
+						</dd>
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">T</button>
+						</dd>
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">W</button>
+						</dd>
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">T</button>
+						</dd>
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">F</button>
+						</dd>
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">S</button>
+						</dd>
+						<dd style="float:left;">
+							<button type="button" class="btn btn-default btn-circle">S</button>
+						</dd>
+					</dl>
+				  </div>
+				</div>
+
+				<!-- Textarea -->
+				<div class="form-group">
+				  <label class="col-md-3 control-label" for="happyHourRewardOfferText">Customers will get</label>
+				  <div class="col-md-9">                     
+				    <textarea class="form-control" rows="3" id="happyHourRewardOfferText" name="happyHourRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+				  </div>
+				</div>
+
+				</fieldset>
+				</form>
+
 	  </div><!-- /.box-body -->
 	  <div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
 	    <button type="submit" class="btn btn-info pull-right">Save</button>
 	  </div><!-- /.box-footer -->
-	</form>
 </div>
+<!--/ Happy Hour Reward form -->
+
+
+<!-- Facebook checkin Reward form -->
+<div class="box box-info ">
+	<div class="box-header with-border">
+	  <i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">FACEBOOK CHECK IN REWARD</div>
+	</div>
+	<div class="box-body body-align-left">
+		<form class="form-horizontal facebook-checkin-reward-form reward-form">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Encourage customers to check in with Facebook and maximize your social media exposure.</legend>
+
+		<!-- Multiple Radios (inline) -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="facebookRewardOfferExpiry">Reward expires in</label>
+		  <div class="col-md-9"> 
+		    <label class="radio-inline" for="facebookRewardOfferExpiry-0">
+		      <input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-0" value="hour" checked="checked">
+		      1 Hour
+		    </label> 
+		    <label class="radio-inline" for="facebookRewardOfferExpiry-1">
+		      <input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-1" value="day">
+		      1 Day
+		    </label> 
+		    <label class="radio-inline" for="facebookRewardOfferExpiry-2">
+		      <input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-2" value="month">
+		      1 Month
+		    </label> 
+		    <label class="radio-inline" for="facebookRewardOfferExpiry-3">
+		      <input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-3" value="year">
+		      1 Year
+		    </label>
+		  </div>
+		</div>
+
+		<!-- Textarea -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="facebookRewardOfferText">Customers will get</label>
+		  <div class="col-md-9">                     
+		    <textarea class="form-control" rows="3" id="facebookRewardOfferText" name="facebookRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+		  </div>
+		</div>
+
+		</fieldset>
+		</form>
+	</div><!-- /.box-body -->
+	  <div class="box-footer">
+	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+	    <button type="submit" class="btn btn-info pull-right">Save</button>
+	  </div><!-- /.box-footer -->
+</div>
+<!--/ Facebook checkin Reward form -->
+
+
+<!-- Facebook referral Reward form -->
+<div class="box box-info ">
+	<div class="box-header with-border">
+	  <i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">FACEBOOK REFERRAL REWARD</div>
+	</div>
+	<div class="box-body body-align-left">
+		<form class="form-horizontal facebook-referral-reward-form reward-form">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Incentivize your customers to invite their friends to your business</legend>
+
+		<!-- Multiple Radios (inline) -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="facebookReferralOfferExpiry">Reward expires in</label>
+		  <div class="col-md-9"> 
+		    <label class="radio-inline" for="facebookReferralOfferExpiry-0">
+		      <input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-0" value="hour" checked="checked">
+		      1 Hour
+		    </label> 
+		    <label class="radio-inline" for="facebookReferralOfferExpiry-1">
+		      <input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-1" value="day">
+		      1 Day
+		    </label> 
+		    <label class="radio-inline" for="facebookReferralOfferExpiry-2">
+		      <input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-2" value="month">
+		      1 Month
+		    </label> 
+		    <label class="radio-inline" for="facebookReferralOfferExpiry-3">
+		      <input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-3" value="year">
+		      1 Year
+		    </label>
+		  </div>
+		</div>
+
+		<!-- Textarea -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="facebookReferralOfferText">Customers will get</label>
+		  <div class="col-md-9">                     
+		    <textarea class="form-control" rows="3" id="facebookReferralOfferText" name="facebookReferralOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+		  </div>
+		</div>
+
+		</fieldset>
+		</form>
+	</div><!-- /.box-body -->
+	  <div class="box-footer">
+	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+	    <button type="submit" class="btn btn-info pull-right">Save</button>
+	  </div><!-- /.box-footer -->
+</div>
+<!--/ Facebook referral Reward form -->
+
+<!-- Lucky check-in Reward form -->
+<div class="box box-info ">
+	<div class="box-header with-border">
+	  <i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">LUCKY CHECK IN REWARD</div>
+	</div>
+	<div class="box-body body-align-left">
+		<form class="form-horizontal facebook-referral-reward-form reward-form">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Incentivize your customers to invite their friends to your business</legend>
+
+				<!-- Multiple Radios (inline) -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="luckyCheckinOfferDates">Surprise every</label>
+		  <div class="col-md-9"> 
+		    <label class="radio-inline" for="luckyCheckinOfferDates-0">
+		      <input type="radio" name="luckyCheckinOfferDates" id="luckyCheckinOfferDates-0" value="hour" checked="checked">
+		      5th
+		    </label> 
+		    <label class="radio-inline" for="luckyCheckinOfferDates-1">
+		      <input type="radio" name="luckyCheckinOfferDates" id="luckyCheckinOfferDates-1" value="day">
+		      10th
+		    </label> 
+		    <label class="radio-inline" for="luckyCheckinOfferDates-2">
+		      <input type="radio" name="luckyCheckinOfferDates" id="luckyCheckinOfferDates-2" value="month">
+		      20th
+		    </label> 
+		  </div>
+		</div>
+
+		<!-- Multiple Radios (inline) -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="luckyCheckinOfferExpiry">Reward expires in</label>
+		  <div class="col-md-9"> 
+		    <label class="radio-inline" for="luckyCheckinOfferExpiry-0">
+		      <input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-0" value="hour" checked="checked">
+		      1 Hour
+		    </label> 
+		    <label class="radio-inline" for="luckyCheckinOfferExpiry-1">
+		      <input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-1" value="day">
+		      1 Day
+		    </label> 
+		    <label class="radio-inline" for="luckyCheckinOfferExpiry-2">
+		      <input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-2" value="month">
+		      1 Month
+		    </label> 
+		    <label class="radio-inline" for="luckyCheckinOfferExpiry-3">
+		      <input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-3" value="year">
+		      1 Year
+		    </label>
+		  </div>
+		</div>
+
+		<!-- Textarea -->
+		<div class="form-group">
+		  <label class="col-md-3 control-label" for="luckyCheckinOfferText">Customers will get</label>
+		  <div class="col-md-9">                     
+		    <textarea class="form-control" rows="3" id="luckyCheckinOfferText" name="luckyCheckinOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+		  </div>
+		</div>
+
+		</fieldset>
+		</form>
+	</div><!-- /.box-body -->
+	  <div class="box-footer">
+	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+	    <button type="submit" class="btn btn-info pull-right">Save</button>
+	  </div><!-- /.box-footer -->
+</div>
+<!--/ Lucky check-in Reward form -->

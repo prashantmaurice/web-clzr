@@ -1,5 +1,6 @@
 @sidebarwidth : 300px;
 @sidebar-tablet-width : 60px;
+@sidebar-mobile-width : 40px;
 @logoheight : 65px;
 
 #wrapper {
@@ -105,6 +106,7 @@ i.fa.d {
   padding: 20px;
 }
 
+// For Tablets
 @media (max-width:1025px) {
 
     #sidebar-wrapper .sidebar-nav span {
@@ -145,6 +147,46 @@ i.fa.d {
 
 }
 
+// For mobile devices
+@media (max-width:600px) {
+
+  #sidebar-wrapper .sidebar-nav span {
+    display:none;
+  }
+
+  #wrapper {
+    padding-left: @sidebar-mobile-width + 10px;
+  }
+
+  #sidebar-wrapper {
+    left: @sidebar-mobile-width;
+
+  }
+
+  #sidebar-wrapper {
+    margin-left: -@sidebar-mobile-width ;
+    left: @sidebar-mobile-width;
+    width: @sidebar-mobile-width;
+    padding-left: @sidebar-mobile-width / 4;
+  }
+
+  .sidebar-nav {
+
+    width: @sidebar-mobile-width;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .sidebar-nav li {
+    text-indent: 0px;
+    font-size: 28px;
+  }
+
+  .sidebar-nav > .sidebar-brand {
+    display: none;
+  }
+
+}
 
 .navbar-collapse , .navbar {
     background-color: white;
