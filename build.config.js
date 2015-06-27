@@ -66,14 +66,10 @@ module.exports = {
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
-      'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/angular-loading-bar/build/loading-bar.js',
-      'vendor/angular-animate/angular-animate.js',
-      'vendor/angular-ui-router-anim-in-out/anim-in-out.js'
     ],
     css: [
-      'vendor/angular-ui-router-anim-in-out/css/anim-in-out.css'
-
+      'vendor/angular-loading-bar/build/loading-bar.css',
     ],
     assets: [
     ]

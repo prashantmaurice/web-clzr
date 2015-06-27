@@ -30,7 +30,6 @@ angular.module( 'clozerrWeb.dashboard', [
 .controller( 'DashboardCtrl', function DashboardCtrl( $scope , $rootElement) {
   // This is simple a demo for UI Boostrap. 
    $scope.isCollapsed = true;
-   $rootElement.data("$$ngAnimateState").running = false; 
 })
 
 ;
