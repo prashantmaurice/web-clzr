@@ -17,9 +17,24 @@ angular.module( 'clozerrWeb.dashboard.loyalty', [
   });
 })
 
-.controller( 'DashboardLoyaltyCtrl', function DashboardLoyaltyCtrl( $scope ) {
-  // This is simple a demo for UI Boostrap. 
+.controller( 'DashboardLoyaltyCtrl', function DashboardLoyaltyCtrl( $scope, $modal ) {
+  $scope.addNewOffer = function () {
+    $modal.open({
+      templateUrl: 'dashboard/loyalty/newOfferModal.tpl.html',
+      controller: 'NewOfferModalCtrl'
+    });
+  };
 })
 
+.controller('NewOfferModalCtrl', function NewOfferModalCtrl($scope, $modalInstance){
+  console.log('NewOfferModalCtrl');
+      $scope.ok = function () {
+        $modalInstance.close();
+      };
+
+      $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+      };
+})
 ;
 

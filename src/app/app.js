@@ -7,6 +7,7 @@ angular.module( 'clozerrWeb', [
   'clozerrWeb.login',
   'clozerrWeb.logout',
   'clozerrWeb.api',
+  'clozerrWeb.utils',
   'ui.router',
   'angular-loading-bar',
   'ui-notification'

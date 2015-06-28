@@ -21,6 +21,9 @@ angular.module( 'clozerrWeb.dashboard', [
         templateUrl: 'dashboard/dashboard.tpl.html'
       }
     },
+    resolve:{
+      loggedin: ['utils', function(auth){return auth.isLoggedIn();}]
+    },
     data:{ pageTitle: 'Dashboard' }
   });
 })

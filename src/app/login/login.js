@@ -19,11 +19,11 @@ angular.module( 'clozerrWeb.login', [
   });
 })
 
-.controller( 'LoginCtrl', function LoginCtrl( $scope, $state, api, Notification, $localForage ) {
+.controller( 'LoginCtrl', function LoginCtrl( $scope, $state, api, Notification, $localForage, $rootScope ) {
         $scope.signIn = function () {
             // Call the login api
             api.login($scope.username, $scope.password).success(function (data) {
-                // Check if login is successfull
+                // Check if login is successful
                 if (data.result === true) {
                     // Save the token
                     api.setToken(data.access_token).then(function () {
@@ -31,6 +31,7 @@ angular.module( 'clozerrWeb.login', [
                         api.profile(data.access_token).success(function (profile) {
                             if(profile.vendor_id){ // Check if he is a vendor
                                 $localForage.setItem('profile', profile).then(function(){
+                                    $rootScope.user = profile;
                                     Notification.success('Login successful!'); // Show success msg
                                     $state.go('dashboard.home'); // Goto home
                                 });
@@ -42,7 +43,8 @@ angular.module( 'clozerrWeb.login', [
                 } else {
                     Notification.error('Invalid username or password');
                 }
-            }).error(function (error) {
+            })
+            .error(function (error) {
                 console.log('error', error);
                 Notification.error('Some error occurred. Please try again!');
             });
