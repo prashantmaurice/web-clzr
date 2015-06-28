@@ -3,6 +3,10 @@
   "name": "clozerrWeb",
   "version": "0.1.4",
   "homepage": "https://github.com/shahidhk/clozerr-web",
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.github.com/shahidhk/clozerr-web/master/LICENSE"
+  },
   "bugs": "https://github.com/shahidhk/clozerr-web/issues",
   "repository": {
     "type": "git",

@@ -63,13 +63,17 @@ module.exports = {
   vendor_files: {
     js: [
       'vendor/angular/angular.js',
-      'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'src/common/ui-bootstrap/ui-bootstrap.tpls.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
+      'vendor/localforage/dist/localforage.js',
+      'vendor/angular-localforage/dist/angular-localForage.js',
       'vendor/angular-loading-bar/build/loading-bar.js',
+      'vendor/angular-ui-notification/dist/angular-ui-notification.min.js'
     ],
     css: [
-      'vendor/angular-loading-bar/build/loading-bar.css',
+      'vendor/angular-ui-notification/dist/angular-ui-notification.min.css',
+      'vendor/angular-loading-bar/build/loading-bar.css'
     ],
     assets: [
     ]

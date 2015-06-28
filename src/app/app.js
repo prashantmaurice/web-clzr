@@ -1,10 +1,15 @@
 angular.module( 'clozerrWeb', [
   'templates-app',
   'templates-common',
+  'LocalForageModule',
   'clozerrWeb.about',
   'clozerrWeb.dashboard',
+  'clozerrWeb.login',
+  'clozerrWeb.logout',
+  'clozerrWeb.api',
   'ui.router',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'ui-notification'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
@@ -17,7 +22,7 @@ angular.module( 'clozerrWeb', [
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | clozerrWeb' ;
+      $scope.pageTitle = toState.data.pageTitle + ' | clozerr' ;
     }
     $scope.dashboardPageHeading = toState.data.pageTitle;
   });
