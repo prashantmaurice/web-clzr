@@ -3,26 +3,70 @@
  */
 
 angular.module('clozerrWeb.utils', [])
-    .factory('utils', ['$state', '$q', '$localForage', 'Notification', function ($state, $q, $localForage, Notification) {
+    .factory('utils',  function ($state, $q, $localForage, Notification, $rootScope, api) {
 
         var utils = {};
-        // Checks if a use is logged in or not
-        utils.isLoggedIn = function () {
+
+        utils.token = '';
+        utils.profile = {};
+
+        utils.login = function (username, password) {
             var deferred = $q.defer();
-            $localForage.getItem('profile').then(function (profile) {
-                if(profile != null){
-                    console.log('logged in');
-                    deferred.resolve();
-                } else {
-                    deferred.reject();
-                    Notification.warning('Please login to access this page!');
-                    $state.go('login');
-                }
+
+            api.auth.login(username, password).then(function(token){
+                return $localForage.setItem('token', token);
+            }).then(function(token){
+                utils.token = token;
+                return api.auth.profile(token);
+            }).then(function(profile){
+                 return $localForage.setItem('profile', profile);
+            }).then(function(profile){
+                Notification.success('Login success!');
+                utils.profile = profile;
+                return deferred.resolve(profile);
+            }, function (error){
+                Notification.error(error);
+                return $q.reject(false);
+            });
+            return deferred.promise;
+        };
+
+        utils.logout = function () {
+            var deferred = $q.defer();
+            $localForage.clear().then(function(){
+                return api.auth.logout(utils.token);
+            }).then(function(result){
+                Notification.success('Logged out!');
+                $state.go('login');
+            }, function(error){
+                Notification.error(error);
             });
         };
-        // Get user profile details
-        utils.user = function () {
-            return $localForage.getItem('profile');
+
+        utils.isLoggedIn = function () {
+            var deferred = $q.defer();
+            $localForage.getItem('token').then(function(token){
+                if(token){
+                    utils.token = token;
+                    return $localForage.getItem('profile');
+                } else {
+                    return $q.reject('Token not found');
+                }
+            }).then(function(profile){
+                if(profile){
+                    utils.profile = profile;
+                    return deferred.resolve(true);
+                } else {
+                    return $q.reject('Profile not found');
+                }
+            }, function (error){
+                Notification.error('Please log in to access this page!');
+                $state.go('login');
+                return $q.reject(false);
+            });
+            return deferred.promise;
         };
+
         return utils;
-    }]);
+    });
+

@@ -2,54 +2,37 @@
 
     <!-- timeline time label -->
     <li class="time-label">
-        <button class="btn btn-success" ng-click="addNewOffer()">
+        <button class="btn btn-success" ng-click="editOffer('')">
             <i class="fa fa-plus"> </i>  Add a new offer
         </button>
     </li>
     <!-- /.timeline-label -->
 
     <!-- timeline item -->
-    <li>
+    <li ng-repeat="offer in offers | orderBy:'+stamps'">
         <!-- timeline icon -->
-        <i class="fa bg-blue"><b>1</b></i>
+        <i class="fa bg-blue"><b ng-bind="offer.stamps">1</b></i>
         <div class="timeline-item">
 
             <!--<span class="time"><i class="fa fa-clock-o"></i> 12:05</span>-->
 
-            <div class="timeline-header"><b>5% off</b></div>
+            <div class="timeline-header"><b ng-bind="offer.caption">5% off</b></div>
 
-            <div class="timeline-body">
+            <div class="timeline-body" ng-bind="offer.description">
                 5% off on a minimum bill of ₹100.
             </div>
 
             <div class="timeline-footer">
-                <button class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> </button>
-                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i> </button>
+                <button class="btn btn-info btn-xs" ng-click="editOffer(offer._id)"><i class="fa fa-pencil"></i> </button>
+                <button class="btn btn-danger btn-xs" ng-really-message="Are you sure to delete this offer?"
+                        ng-really-click="deleteOffer(offer._id)">
+                    <i class="fa fa-times"></i>
+                </button>
             </div>
         </div>
     </li>
     <!-- END timeline item -->
 
-    <!-- timeline item -->
-    <li>
-        <!-- timeline icon -->
-        <i class="fa bg-blue"><b>3</b></i>
-        <div class="timeline-item">
-            <!--<span class="time"><i class="fa fa-clock-o"></i> 12:05</span>-->
-
-            <div class="timeline-header"><b>Free cappuccino</b></div>
-
-            <div class="timeline-body">
-                Get a free cappuccino on your 3rd visit for minimum bill of ₹200
-            </div>
-
-            <div class="timeline-footer">
-                <button class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> </button>
-                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i> </button>
-            </div>
-        </div>
-    </li>
-    <!-- END timeline item -->
 
 
 

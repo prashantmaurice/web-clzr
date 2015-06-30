@@ -4,13 +4,13 @@
   </div><!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-    <form role="form">
+    <form role="form" >
       <div class="form-group has-feedback">
-        <input autofocus type="text" required class="form-control" placeholder="Username" ng-model="username" />
+        <input autofocus type="text" required class="form-control" placeholder="Username" ng-model="cred.username" />
         <span class="fa fa-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" required class="form-control" placeholder="Password" ng-model="password" />
+        <input type="password" required class="form-control" placeholder="Password" ng-model="cred.password" />
         <span class="fa fa-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -23,7 +23,7 @@
             <!--</div>-->
         <!--</div>-->
         <div class="col-xs-12">
-          <button class="btn btn-primary btn-block btn-flat" ng-click="signIn()">Sign In</button>
+          <button class="btn btn-primary btn-block btn-flat"  ng-click="signIn(cred)">Sign In</button>
         </div><!-- /.col -->
       </div>
     </form>

@@ -12,6 +12,7 @@ angular.module( 'clozerrWeb.dashboard.home', [
         templateUrl: 'dashboard/home/home.tpl.html'
       }
     },
+    authenticate: true,
     data:{ pageTitle: 'Home' }
   });
 })

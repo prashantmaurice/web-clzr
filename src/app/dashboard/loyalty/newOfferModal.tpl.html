@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="visitNo">No. of visits</label>
                     <div class="col-md-7">
-                        <input id="visitNo" name="visitNo" type="text" placeholder="say 3" class="form-control input-md" required="">
+                        <input ng-model="offer.stamps" id="visitNo" name="visitNo" type="text" placeholder="say 3" class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="caption">Caption</label>
                     <div class="col-md-7">
-                        <input id="caption" name="caption" type="text" placeholder="e.g. 5% off" class="form-control input-md" required="">
+                        <input ng-model="offer.caption" id="caption" name="caption" type="text" placeholder="e.g. 5% off" class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="description">Describe your offer</label>
                     <div class="col-md-7">
-                        <textarea rows="3" class="form-control" id="description" name="description" placeholder="e.g. 5% off on a minimum bill amount of ₹100"></textarea>
+                        <textarea ng-model="offer.description" rows="3" class="form-control" id="description" name="description" placeholder="e.g. 5% off on a minimum bill amount of ₹100"></textarea>
                     </div>
                 </div>
 
