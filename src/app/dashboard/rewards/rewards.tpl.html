@@ -102,28 +102,7 @@
 						<datetimepicker min-date="minDate" show-weeks="false" hour-step="1" minute-step="1" ng-model="rewards.limitedTime.params.startDateTime" show-meridian="true" date-format="dd-MMM-yyyy"  readonly-time="false"></datetimepicker>
 						to <datetimepicker min-date="minDate" show-weeks="false" hour-step="1" minute-step="1" ng-model="rewards.limitedTime.params.endDateTime" show-meridian="true" date-format="dd-MMM-yyyy"  ></datetimepicker>
 					</div>
-
-					<!--<div class="col-md-4">-->
-                        <!--<p class="input-group">-->
-                            <!--<input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="rewards.limitedTime.params.startDateTime" is-open="calUIOpen.date1" />-->
-                            <!--<span class="input-group-btn">-->
-                                <!--<button type="button" class="btn btn-default" ng-click="openCalendar($event, 'date1')"><i class="fa fa-calendar"></i></button>-->
-                            <!--</span>-->
-                        <!--</p>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-1" style="text-align: center;">-->
-                        <!--to-->
-                    <!--</div>-->
-                    <!--<div class="col-md-4">-->
-                        <!--<p class="input-group">-->
-                            <!--<input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="rewards.limitedTime.params.endDateTime" is-open="calUIOpen.date2" />-->
-                            <!--<span class="input-group-btn">-->
-                                <!--<button type="button" class="btn btn-default" ng-click="openCalendar($event, 'date2')"><i class="fa fa-calendar"></i></button>-->
-                            <!--</span>-->
-                        <!--</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-
+				</div>
                 <!-- Textarea -->
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="limitedTimeRewardOfferText">Customers will get</label>
@@ -141,6 +120,43 @@
     </div><!-- /.box-footer -->
 </div>
 <!--/ Limited time Reward form -->
+
+<!-- Limited customers Reward form -->
+<div class="box box-info ">
+	<div class="box-header with-border">
+		<i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">LIMITED CUSTOMERS REWARD</div>
+	</div>
+	<div class="box-body body-align-left">
+		<form class="form-horizontal limited-customers-form reward-form" role="form">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Create rewards that are available for a limited number of customers</legend>
+
+				<!-- Multiple Radios (inline) -->
+				<div class="form-group">
+					<label class="col-md-3 control-label">Enter maximum number of customers</label>
+					<div class="col-md-9 ">
+						<input type="number" min="0" max="5000" ng-model="rewards.limitedCustomer.params.maxCustomers" class="form-control" />
+					</div>
+				</div>
+					<!-- Textarea -->
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="limitedCustomerRewardOfferText">Customers will get</label>
+						<div class="col-md-9">
+							<textarea class="form-control" ng-model="rewards.limitedCustomer.description" rows="3" id="limitedCustomerRewardOfferText" name="limitedCustomerRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+						</div>
+					</div>
+
+			</fieldset>
+		</form>
+	</div>
+	<div class="box-footer">
+		<!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+		<button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.limitedCustomer)" ng-autodisable>Save</button>
+	</div><!-- /.box-footer -->
+</div>
+<!--/ Limited customers Reward form -->
 
 <!-- Happy Hour Reward form -->
 <div class="box box-info ">

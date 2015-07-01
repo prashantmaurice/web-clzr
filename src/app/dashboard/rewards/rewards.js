@@ -78,6 +78,15 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
         startDateTime: new Date(),
         endDateTime: new Date()
       }
+    },
+    limitedCustomer: {
+      type: "S0",
+      caption: "Limited Customers Offer",
+      description: "",
+      params: {
+        type: "limitedCustomer",
+        maxCustomers: 0
+      }
     }
   };
 
