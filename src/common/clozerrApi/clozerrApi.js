@@ -69,7 +69,7 @@ angular.module('clozerrWeb.api', [])
                     }
                 });
             },
-            create: function (access_token, caption, description, stamps){
+            create: function (access_token, offer){
                 /*
                  Create a new offer
                  params: access_token, caption, description, stamps
@@ -94,9 +94,11 @@ angular.module('clozerrWeb.api', [])
                 return $http.get(urlBase + 'offer/create', {
                     params: {
                         access_token: access_token,
-                        caption: caption,
-                        description: description,
-                        stamps: stamps
+                        caption: offer.caption,
+                        description: offer.description,
+                        stamps: offer.stamps || "",
+                        type: offer.type,
+                        params: offer.params
                     }
                 }).then(function(resp){
                     if(resp.data.result){
@@ -124,7 +126,6 @@ angular.module('clozerrWeb.api', [])
                  }
                  }
                  */
-                console.log('params', offer);
                 return $http.get(urlBase + 'v2/offer/details/set', {
                     params: {
                         offer_id: offer_id,
@@ -133,7 +134,6 @@ angular.module('clozerrWeb.api', [])
                     },
                     paramSerializer: '$httpParamSerializerJQLike'
                 }).then(function(resp){
-                    console.log('API bare response:',resp);
                     return resp.data;
                 }, function(error){
                     console.log(error);

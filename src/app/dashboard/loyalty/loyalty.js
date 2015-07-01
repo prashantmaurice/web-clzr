@@ -86,10 +86,13 @@ angular.module( 'clozerrWeb.dashboard.loyalty', [
             });
         } else {
           // Add new offer
-          api.offer.create(utils.token, offer.caption, offer.description, offer.stamps).then(function(result){
-            Notification.success('New offer created!');
+            offer.type = "S1";
+            offer.params = {};
+          api.offer.create(utils.token, offer)
+          .then(function(result){
             return api.offer.addToVendor(utils.token, utils.profile.vendor_id, result._id);
           }).then(function(result){
+            Notification.success('New offer created!');
             $modalInstance.close(result);
           }, function(error){
             Notification.error(error);

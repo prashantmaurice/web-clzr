@@ -1,3 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-user-plus"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-number">Engage with your usuals !</span>
+                <span class="info-box-text">Give your most loyal club members a privilege with every purchase</span>
+            </div><!-- /.info-box-content -->
+        </div>
+    </div>
+</div>
 <ul class="timeline">
 
     <!-- timeline time label -->
@@ -14,7 +25,12 @@
         <i class="fa bg-blue"><b ng-bind="offer.stamps">1</b></i>
         <div class="timeline-item">
 
-            <!--<span class="time"><i class="fa fa-clock-o"></i> 12:05</span>-->
+            <span class="time">
+                <button class="btn btn-danger btn-xs" ng-really-message="Are you sure to delete this offer?"
+                                       ng-really-click="deleteOffer(offer._id)">
+                    <i class="fa fa-times"></i>
+                </button>
+            </span>
 
             <div class="timeline-header"><b ng-bind="offer.caption">5% off</b></div>
 
@@ -24,10 +40,7 @@
 
             <div class="timeline-footer">
                 <button class="btn btn-info btn-xs" ng-click="editOffer(offer._id)"><i class="fa fa-pencil"></i> </button>
-                <button class="btn btn-danger btn-xs" ng-really-message="Are you sure to delete this offer?"
-                        ng-really-click="deleteOffer(offer._id)">
-                    <i class="fa fa-times"></i>
-                </button>
+
             </div>
         </div>
     </li>

@@ -11,5 +11,17 @@
     "angular-localforage": "~1.2.2",
     "angular-ui-notification": "~0.0.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-bootstrap": "~0.13.0",
+    "angular-loading-bar": "~0.8.0",
+    "angular-mocks": "~1.4.1"
+    "angular-ui-bootstrap-datetimepicker": "~0.11.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.1",
+    "angular-mocks": "~1.4.1",
+    "angular-bootstrap": "~0.13.0",
+    "angular-loading-bar": "~0.8.0"
+  }
 }

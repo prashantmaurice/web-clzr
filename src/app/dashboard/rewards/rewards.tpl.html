@@ -24,37 +24,43 @@
 
 		<!-- Multiple Radios (inline) -->
 		<div class="form-group">
-		  <label class="col-md-3 control-label" for="welcomeRewardOfferExpiry">Reward expires in</label>
+		  <label class="col-md-3 control-label">Reward expires in</label>
 		  <div class="col-md-9">
+			  <div class="radio radio-inline radio-info">
+				  <input type="radio" ng-model="rewards.welcome.params.expiry" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-00" value="no" checked="checked">
+				  <label for="welcomeRewardOfferExpiry-00">
+					  No expiry
+				  </label>
+			  </div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-0" value="hour" checked="checked">
+		      	<input type="radio" ng-model="rewards.welcome.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-0" value="hour">
 			  	<label for="welcomeRewardOfferExpiry-0">
 			      1 Hour
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-1" value="day" >
+		      	<input type="radio" ng-model="rewards.welcome.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-1" value="day" >
 			  	<label for="welcomeRewardOfferExpiry-1">
 			      1 Day
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-2" value="month" >
+		      	<input type="radio"  ng-model="rewards.welcome.params.expiry" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-2" value="month" >
 			  	<label for="welcomeRewardOfferExpiry-2">
 			      1 Month
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-3" value="year" >
+		      	<input type="radio" ng-model="rewards.welcome.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-3" value="year" >
 			  	<label for="welcomeRewardOfferExpiry-3">
 			      1 Year
-			    </label>	
+			    </label>
 		  	</div>
-		    
+
 
 		  </div>
 		</div>
@@ -62,8 +68,8 @@
 		<!-- Textarea -->
 		<div class="form-group">
 		  <label class="col-md-3 control-label" for="welcomeRewardOfferText">Customers will get</label>
-		  <div class="col-md-9">                     
-		    <textarea class="form-control" rows="3" id="welcomeRewardOfferText" name="welcomeRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+		  <div class="col-md-9">
+		    <textarea class="form-control" ng-model="rewards.welcome.description" rows="3" id="welcomeRewardOfferText" name="welcomeRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
 		  </div>
 		</div>
 
@@ -72,10 +78,69 @@
 	</div>
 	<div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-	    <button type="submit" class="btn btn-info pull-right">Save</button>
+	    <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.welcome)">Save</button>
 	  </div><!-- /.box-footer -->
 </div>
 <!--/ Welcome Reward form -->
+
+<!-- Limited time Reward form -->
+<div class="box box-info ">
+    <div class="box-header with-border">
+        <i class="d fa fa-gift heading-text"></i><div class="box-title heading-text">LIMITED TIME REWARD</div>
+    </div>
+    <div class="box-body body-align-left">
+        <form class="form-horizontal limited-time-form reward-form" role="form">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Create rewards that lasts for a limited period of time</legend>
+
+                <!-- Multiple Radios (inline) -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Select your time window</label>
+					<div class="col-md-9 ">
+						<datetimepicker min-date="minDate" show-weeks="false" hour-step="1" minute-step="1" ng-model="rewards.limitedTime.params.startDateTime" show-meridian="true" date-format="dd-MMM-yyyy"  readonly-time="false"></datetimepicker>
+						to <datetimepicker min-date="minDate" show-weeks="false" hour-step="1" minute-step="1" ng-model="rewards.limitedTime.params.endDateTime" show-meridian="true" date-format="dd-MMM-yyyy"  ></datetimepicker>
+					</div>
+
+					<!--<div class="col-md-4">-->
+                        <!--<p class="input-group">-->
+                            <!--<input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="rewards.limitedTime.params.startDateTime" is-open="calUIOpen.date1" />-->
+                            <!--<span class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default" ng-click="openCalendar($event, 'date1')"><i class="fa fa-calendar"></i></button>-->
+                            <!--</span>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-1" style="text-align: center;">-->
+                        <!--to-->
+                    <!--</div>-->
+                    <!--<div class="col-md-4">-->
+                        <!--<p class="input-group">-->
+                            <!--<input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="rewards.limitedTime.params.endDateTime" is-open="calUIOpen.date2" />-->
+                            <!--<span class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default" ng-click="openCalendar($event, 'date2')"><i class="fa fa-calendar"></i></button>-->
+                            <!--</span>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="limitedTimeRewardOfferText">Customers will get</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" ng-model="rewards.limitedTime.description" rows="3" id="limitedTimeRewardOfferText" name="limitedTimeRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="box-footer">
+        <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+        <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.limitedTime)" ng-autodisable>Save</button>
+    </div><!-- /.box-footer -->
+</div>
+<!--/ Limited time Reward form -->
 
 <!-- Happy Hour Reward form -->
 <div class="box box-info ">
@@ -88,56 +153,93 @@
 				<fieldset>
 
 				<!-- Form Name -->
-				<legend>Incentivize your customers to come in during typically slow hours</legend>
+				<legend>Give incentives to your customers to come in during typically slow hours</legend>
 
 				<!-- Multiple Radios (inline) -->
 				<div class="form-group">
-				  <label class="col-md-3 control-label" for="happyHourRewardTimes">Select your slow hours</label>
-				  <div class="col-md-9"> 
-				    <label class="radio-inline" for="happyHourRewardTimes-0">
-				       <timepicker name="happyHourRewardTimes" id="happyHourRewardTimes-0" ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-				    </label> 
-				    <label class="radio-inline" for="happyHourRewardTimes-1">
-				       <timepicker name="happyHourRewardTimes" id="happyHourRewardTimes-1" ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-				    </label> 
+				  <label class="col-md-3 control-label" >Select your slow hours</label>
+				  <div class="col-md-2">
+                      <select class="form-control" ng-model="rewards.happyHour.params.startHour" convert-to-number>
+                          <option value="0">12 AM</option>
+                          <option value="1">1 AM</option>
+                          <option value="2">2 AM</option>
+                          <option value="3">3 AM</option>
+                          <option value="4">4 AM</option>
+                          <option value="5">5 AM</option>
+                          <option value="6">6 AM</option>
+                          <option value="7">7 AM</option>
+                          <option value="8">8 AM</option>
+                          <option value="9">9 AM</option>
+                          <option value="10">10 AM</option>
+                          <option value="11">11 AM</option>
+                          <option value="12">12 PM</option>
+                          <option value="13">1 PM</option>
+                          <option value="14">2 PM</option>
+                          <option value="15">3 PM</option>
+                          <option value="16">4 PM</option>
+                          <option value="17">5 PM</option>
+                          <option value="18">6 PM</option>
+                          <option value="19">7 PM</option>
+                          <option value="20">8 PM</option>
+                          <option value="21">9 PM</option>
+                          <option value="22">10 PM</option>
+                          <option value="23">11 PM</option>
+                      </select>
+                      </div>
+                    <div class="col-md-1" style="text-align: center;">
+                      to
+                    </div>
+                    <div class="col-md-2">
+                      <select class="form-control" ng-model="rewards.happyHour.params.endHour" convert-to-number>
+                          <option value="0">12 AM</option>
+                          <option value="1">1 AM</option>
+                          <option value="2">2 AM</option>
+                          <option value="3">3 AM</option>
+                          <option value="4">4 AM</option>
+                          <option value="5">5 AM</option>
+                          <option value="6">6 AM</option>
+                          <option value="7">7 AM</option>
+                          <option value="8">8 AM</option>
+                          <option value="9">9 AM</option>
+                          <option value="10">10 AM</option>
+                          <option value="11">11 AM</option>
+                          <option value="12">12 PM</option>
+                          <option value="13">1 PM</option>
+                          <option value="14">2 PM</option>
+                          <option value="15">3 PM</option>
+                          <option value="16">4 PM</option>
+                          <option value="17">5 PM</option>
+                          <option value="18">6 PM</option>
+                          <option value="19">7 PM</option>
+                          <option value="20">8 PM</option>
+                          <option value="21">9 PM</option>
+                          <option value="22">10 PM</option>
+                          <option value="23">11 PM</option>
+                      </select>
 				  </div>
 				</div>
 
 				<!-- Multiple Radios (inline) -->
 				<div class="form-group">
-				  <label class="col-md-3 control-label" for="happyHourRewardDays">Select your slow days</label>
-				  <div class="col-md-9"> 
-				    <dl class="week-list" style="float:left;display:inline;">
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">M</button>
-						</dd>
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">T</button>
-						</dd>
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">W</button>
-						</dd>
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">T</button>
-						</dd>
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">F</button>
-						</dd>
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">S</button>
-						</dd>
-						<dd style="float:left;">
-							<button type="button" class="btn btn-default btn-circle">S</button>
-						</dd>
-					</dl>
+				  <label class="col-md-3 control-label">Select your slow days</label>
+				  <div class="col-md-9">
+                      <div class="btn-group">
+                          <label class="btn btn-default btn-circle" ng-model="days['0']" btn-checkbox>M</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['1']" btn-checkbox>T</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['2']" btn-checkbox>W</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['3']" btn-checkbox>T</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['4']" btn-checkbox>F</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['5']" btn-checkbox>S</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['6']" btn-checkbox>S</label>
+                      </div>
 				  </div>
 				</div>
 
 				<!-- Textarea -->
 				<div class="form-group">
 				  <label class="col-md-3 control-label" for="happyHourRewardOfferText">Customers will get</label>
-				  <div class="col-md-9">                     
-				    <textarea class="form-control" rows="3" id="happyHourRewardOfferText" name="happyHourRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+				  <div class="col-md-9">
+				    <textarea ng-model="rewards.happyHour.description" class="form-control" rows="3" id="happyHourRewardOfferText" name="happyHourRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
 				  </div>
 				</div>
 
@@ -147,7 +249,7 @@
 	  </div><!-- /.box-body -->
 	  <div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-	    <button type="submit" class="btn btn-info pull-right">Save</button>
+	    <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.happyHour)" ng-autodisable>Save</button>
 	  </div><!-- /.box-footer -->
 </div>
 <!--/ Happy Hour Reward form -->
@@ -167,35 +269,42 @@
 
 		<!-- Multiple Radios (inline) -->
 		<div class="form-group">
-		  <label class="col-md-3 control-label" for="facebookRewardOfferExpiry">Reward expires in</label>
-		  <div class="col-md-9"> 
+		  <label class="col-md-3 control-label">Reward expires in</label>
+		  <div class="col-md-9">
+
+			  <div class="radio radio-inline radio-info">
+				  <input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-00" value="no" checked="checked">
+				  <label for="facebookRewardOfferExpiry-00">
+					  No expiry
+				  </label>
+			  </div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-0" value="hour" checked="checked">
+		      	<input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-0" value="hour" >
 			  	<label for="facebookRewardOfferExpiry-0">
 			      1 Hour
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-1" value="day" >
 			  	<label for="facebookRewardOfferExpiry-1">
 			      1 Day
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-2" value="month">
 			  	<label for="facebookRewardOfferExpiry-2">
 			      1 Month
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="facebookRewardOfferExpiry" id="facebookRewardOfferExpiry-3" value="year" >
 			  	<label for="facebookRewardOfferExpiry-3">
 			      1 Year
-			    </label>	
+			    </label>
 		  	</div>
 
 
@@ -205,7 +314,7 @@
 		<!-- Textarea -->
 		<div class="form-group">
 		  <label class="col-md-3 control-label" for="facebookRewardOfferText">Customers will get</label>
-		  <div class="col-md-9">                     
+		  <div class="col-md-9">
 		    <textarea class="form-control" rows="3" id="facebookRewardOfferText" name="facebookRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
 		  </div>
 		</div>
@@ -217,6 +326,9 @@
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
 	    <button type="submit" class="btn btn-info pull-right">Save</button>
 	  </div><!-- /.box-footer -->
+    <div class="overlay">
+        <i class="fa fa-bolt"></i>
+    </div>
 </div>
 <!--/ Facebook checkin Reward form -->
 
@@ -235,35 +347,41 @@
 
 		<!-- Multiple Radios (inline) -->
 		<div class="form-group">
-		  <label class="col-md-3 control-label" for="facebookReferralOfferExpiry">Reward expires in</label>
-		  <div class="col-md-9"> 
+		  <label class="col-md-3 control-label" >Reward expires in</label>
+		  <div class="col-md-9">
+			  <div class="radio radio-inline radio-info">
+				  <input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-00" value="no" checked="checked">
+				  <label for="facebookReferralOfferExpiry-00">
+					  No expiry
+				  </label>
+			  </div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-0" value="hour" checked="checked">
+		      	<input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-0" value="hour">
 			  	<label for="facebookReferralOfferExpiry-0">
 			      1 Hour
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-1" value="day" >
 			  	<label for="facebookReferralOfferExpiry-1">
 			      1 Day
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-2" value="month" >
 			  	<label for="facebookReferralOfferExpiry-2">
 			      1 Month
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="facebookReferralOfferExpiry" id="facebookReferralOfferExpiry-3" value="year" >
 			  	<label for="facebookReferralOfferExpiry-3">
 			      1 Year
-			    </label>	
+			    </label>
 		  	</div>
 
 
@@ -273,7 +391,7 @@
 		<!-- Textarea -->
 		<div class="form-group">
 		  <label class="col-md-3 control-label" for="facebookReferralOfferText">Customers will get</label>
-		  <div class="col-md-9">                     
+		  <div class="col-md-9">
 		    <textarea class="form-control" rows="3" id="facebookReferralOfferText" name="facebookReferralOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
 		  </div>
 		</div>
@@ -285,6 +403,9 @@
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
 	    <button type="submit" class="btn btn-info pull-right">Save</button>
 	  </div><!-- /.box-footer -->
+    <div class="overlay">
+        <i class="fa fa-bolt"></i>
+    </div>
 </div>
 <!--/ Facebook referral Reward form -->
 
@@ -302,29 +423,29 @@
 
 				<!-- Multiple Radios (inline) -->
 		<div class="form-group">
-		  <label class="col-md-3 control-label" for="luckyCheckinOfferDates">Surprise every</label>
-		  <div class="col-md-9"> 
+		  <label class="col-md-3 control-label">Surprise every</label>
+		  <div class="col-md-9">
 
 
 		    <div class="radio radio-inline radio-info">
 		      	<input type="radio" name="luckyCheckinOfferDates" id="luckyCheckinOfferDates-0" value="5th" checked="checked">
 			  	<label for="luckyCheckinOfferDates-0">
 			      5th
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="luckyCheckinOfferDates" id="luckyCheckinOfferDates-1" value="10th" >
 			  	<label for="luckyCheckinOfferDates-1">
 			      10th
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="luckyCheckinOfferDates" id="luckyCheckinOfferDates-2" value="20th">
 			  	<label for="luckyCheckinOfferDates-2">
 			      20th
-			    </label>	
+			    </label>
 		  	</div>
 
 
@@ -333,35 +454,41 @@
 
 		<!-- Multiple Radios (inline) -->
 		<div class="form-group">
-		  <label class="col-md-3 control-label" for="luckyCheckinOfferExpiry">Reward expires in</label>
+		  <label class="col-md-3 control-label" >Reward expires in</label>
 		  <div class="col-md-9">
+			  <div class="radio radio-inline radio-info">
+				  <input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-00" value="no" checked="checked">
+				  <label for="luckyCheckinOfferExpiry-00">
+					  No expiry
+				  </label>
+			  </div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-0" value="hour" checked="checked">
+		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-0" value="hour">
 			  	<label for="luckyCheckinOfferExpiry-0">
 			      1 Hour
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
 		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-1" value="day" >
 			  	<label for="luckyCheckinOfferExpiry-1">
 			      1 Day
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-2" value="month"">
+		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-2" value="month">
 			  	<label for="luckyCheckinOfferExpiry-2">
 			      1 Month
-			    </label>	
+			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-3" value="year" ">
+		      	<input type="radio" name="luckyCheckinOfferExpiry" id="luckyCheckinOfferExpiry-3" value="year" >
 			  	<label for="luckyCheckinOfferExpiry-3">
 			      1 Year
-			    </label>	
+			    </label>
 		  	</div>
 
 		  </div>
@@ -370,7 +497,7 @@
 		<!-- Textarea -->
 		<div class="form-group">
 		  <label class="col-md-3 control-label" for="luckyCheckinOfferText">Customers will get</label>
-		  <div class="col-md-9">                     
+		  <div class="col-md-9">
 		    <textarea class="form-control" rows="3" id="luckyCheckinOfferText" name="luckyCheckinOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
 		  </div>
 		</div>
@@ -382,5 +509,8 @@
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
 	    <button type="submit" class="btn btn-info pull-right">Save</button>
 	  </div><!-- /.box-footer -->
+    <div class="overlay">
+        <i class="fa fa-bolt"></i>
+    </div>
 </div>
 <!--/ Lucky check-in Reward form -->
