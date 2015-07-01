@@ -1,5 +1,7 @@
 /**
  * Created by shahidh on 30/6/15.
+ * directives.js
+ * Contains commonly used directives used all over the app
  */
 
 /**
@@ -19,6 +21,7 @@ angular.module('clozerrWeb').directive('ngReallyClick', [function() {
         }
     };
 }])
+
 .directive('convertToNumber', function() {
     return {
         require: 'ngModel',
@@ -32,6 +35,7 @@ angular.module('clozerrWeb').directive('ngReallyClick', [function() {
         }
     };
 })
+
 .directive('ngAutodisable', [ '$parse', function($parse) {
 
     var DISABLED = 'disabled',      // Disabled attribute

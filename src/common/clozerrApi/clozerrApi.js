@@ -1,10 +1,26 @@
+/**
+ * Created by shahidh on 28/6/15.
+ * clozerrApi.js
+ * Contains all API accessing functions
+ */
+
 angular.module('clozerrWeb.api', [])
     .factory('api', function($http, $localForage, $q) {
 
         var urlBase = 'http://api.clozerr.com/';
         var api = {};
 
+        /**
+         * Auth object
+         * @type {{login: Function, logout: Function, profile: Function}}
+         */
         api.auth = {
+            /**
+             * Login api using promises
+             * @param username
+             * @param password
+             * @returns {access_token}
+             */
             login: function (username, password) {
                 return $http.get(urlBase + 'auth/login/password/', {
                     params: {
@@ -21,6 +37,11 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject(error);
                 });
             },
+            /**
+             * Logout api
+             * @param token
+             * @returns {*}
+             */
             logout: function (token) {
                 return $http.get(urlBase + 'auth/logout/', {
                     params: {
@@ -36,6 +57,11 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject('Server error, please try again!');
                 });
             },
+            /**
+             * Profile api
+             * @param token
+             * @returns {*}
+             */
             profile: function (token) {
                 return $http.get(urlBase + 'auth/profile/', {
                     params: {
@@ -49,8 +75,16 @@ angular.module('clozerrWeb.api', [])
             }
         };
 
+        /**
+         * Offer object
+         * @type {{all: Function, details: Function, create: Function, edit: Function, addToVendor: Function, deleteFromVendor: Function}}
+         */
         api.offer ={
-            // Returns vendor details with expanded offer details
+            /**
+             * Get all offers with expanded details
+             * @param vendor_id
+             * @returns {offers}, err: {Promise}
+             */
             all: function (vendor_id){
                 return $http.get(urlBase + 'v2/vendor/offers/active', {
                     params: {
@@ -62,6 +96,11 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject(error);
                 });
             },
+            /**
+             * Get details of a specific offer
+             * @param offer_id
+             * @returns {HttpPromise}
+             */
             details: function (offer_id) {
                 return $http.get(urlBase + 'v2/offer/get/details', {
                     params: {
@@ -69,28 +108,13 @@ angular.module('clozerrWeb.api', [])
                     }
                 });
             },
+            /**
+             * Create a new offer
+             * @param access_token
+             * @param offer
+             * @returns {offer}
+             */
             create: function (access_token, offer){
-                /*
-                 Create a new offer
-                 params: access_token, caption, description, stamps
-                 return: {
-                 result: true,
-                 data: {
-                 type
-                 stamps
-                 caption
-                 description
-                 _id
-                 }
-                 }
-                 {
-                 result: false,
-                 err: {
-                 code: 619,
-                 description: User not logged in
-                 }
-                 }
-                 */
                 return $http.get(urlBase + 'offer/create', {
                     params: {
                         access_token: access_token,
@@ -111,21 +135,14 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject('Server unreachable. Please try again!');
                 });
             },
+            /**
+             * Edit an existing offer
+             * @param access_token
+             * @param offer_id
+             * @param offer
+             * @returns {offer}
+             */
             edit: function (access_token, offer_id, offer) {
-                /*
-                 Edit an offer object
-                 params: access_token, offer_id, offer
-                 return: {
-                 vendor details
-                 }
-                 {
-                 result: false,
-                 err: {
-                 code: xxx,
-                 description: xxx
-                 }
-                 }
-                 */
                 return $http.get(urlBase + 'v2/offer/details/set', {
                     params: {
                         offer_id: offer_id,
@@ -140,22 +157,14 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject('Server unreachable. Please try again!');
                 });
             },
+            /**
+             * Add an offer to vendor
+             * @param access_token
+             * @param vendor_id
+             * @param offer_id
+             * @returns {true}
+             */
             addToVendor: function (access_token, vendor_id, offer_id) {
-                /*
-                 Add an offer to vendor
-                 params: access_token, vendor_id, offer_id
-                 return: {
-                 result: true,
-                 }
-
-                 {
-                 result: false,
-                 err: {
-                 code: xxx,
-                 description: xxx
-                 }
-                 }
-                 */
                 return $http.get(urlBase + 'vendor/addoffer', {
                     params: {
                         vendor_id: vendor_id,
@@ -173,21 +182,14 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject('Server unreachable. Please try again!');
                 });
             },
+            /**
+             * Delete an offer from a vendor
+             * @param access_token
+             * @param vendor_id
+             * @param offer_id
+             * @returns {*}
+             */
             deleteFromVendor: function (access_token, vendor_id, offer_id) {
-                /*
-                 Delete an offer from vendor
-                 params: access_token, vendor_id, offer_id
-                 return: {
-                 vendor details
-                 }
-                 {
-                 result: false,
-                 err: {
-                 code: xxx,
-                 description: xxx
-                 }
-                 }
-                 */
                 return $http.get(urlBase + 'offer/delete', {
                     params: {
                         vendor_id: vendor_id,
@@ -203,7 +205,11 @@ angular.module('clozerrWeb.api', [])
             }
         };
 
-
+        /**
+         * Get details of a vendor
+         * @param vendor_id
+         * @returns {HttpPromise}
+         */
         api.vendorDetails = function (vendor_id) {
             return $http.get(urlBase + 'v2/vendor/get/details', {
                 params: {
