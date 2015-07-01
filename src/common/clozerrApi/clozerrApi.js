@@ -124,12 +124,14 @@ angular.module('clozerrWeb.api', [])
                  }
                  }
                  */
+                console.log('params', offer);
                 return $http.get(urlBase + 'v2/offer/details/set', {
                     params: {
                         offer_id: offer_id,
                         access_token: access_token,
                         offer: offer
-                    }
+                    },
+                    paramSerializer: '$httpParamSerializerJQLike'
                 }).then(function(resp){
                     console.log('API bare response:',resp);
                     return resp.data;

@@ -18,15 +18,19 @@ angular.module( 'clozerrWeb.dashboard.loyalty', [
 
 .controller( 'DashboardLoyaltyCtrl', function DashboardLoyaltyCtrl( $scope, $modal, $rootScope, api, utils, Notification ) {
 
-      function loadOffers () {
+      function loadS1Offers () {
           api.offer.all(utils.profile.vendor_id).then(function(offers){
+              var s1Offers = [];
               for (var i in offers){
                   offers[i].stamps = parseInt(offers[i].stamps, 10);
+                  if (offers[i].type == "S1") {
+                      s1Offers.push(offers[i]);
+                  }
               }
-              $scope.offers = offers;
+              $scope.offers = s1Offers;
           });
       }
-      loadOffers();
+      loadS1Offers();
 
       $scope.editOffer = function (id) {
         var offerModal = $modal.open({
@@ -48,14 +52,14 @@ angular.module( 'clozerrWeb.dashboard.loyalty', [
         offerModal.result.then(function(res){
           // Reload offers
           console.log(res);
-          loadOffers();
+          loadS1Offers();
         });
       };
 
       $scope.deleteOffer = function (id) {
         api.offer.deleteFromVendor(utils.token,utils.profile.vendor_id, id).then(function(result){
           Notification.warning('Offer deleted!');
-          loadOffers();
+          loadS1Offers();
         }, function (error) {
           console.log(error);
           Notification.error(error);
