@@ -15,13 +15,14 @@
     "angular": "~1.4.1",
     "angular-bootstrap": "~0.13.0",
     "angular-loading-bar": "~0.8.0",
-    "angular-mocks": "~1.4.1"
-    "angular-ui-bootstrap-datetimepicker": "~0.11.2"
+    "angular-mocks": "~1.4.1",
+    "angular-ui-bootstrap-datetimepicker": "~0.11.2",
+    "components-font-awesome": "~4.3.0"
   },
   "resolutions": {
     "angular": "~1.4.1",
     "angular-mocks": "~1.4.1",
-    "angular-bootstrap": "~0.13.0",
+    "angular-bootstrap": "~0.12.1",
     "angular-loading-bar": "~0.8.0"
   }
 }
