@@ -22,7 +22,7 @@
   "resolutions": {
     "angular": "~1.4.1",
     "angular-mocks": "~1.4.1",
-    "angular-bootstrap": "~0.12.1",
+    "angular-bootstrap": "~0.13.0",
     "angular-loading-bar": "~0.8.0"
   }
 }

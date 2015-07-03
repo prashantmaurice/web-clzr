@@ -18,7 +18,14 @@ angular.module( 'clozerrWeb.dashboard.campaigns', [
 })
 
 .controller( 'DashboardCampaignsCtrl', function DashboardCampaignsCtrl( $scope ) {
-  // This is simple a demo for UI Boostrap. 
+
+      $scope.collapseBDSpecial = true;
+      $scope.collapseVisitReminder = true;
+      $scope.collapseGeoTarget = true;
+      $scope.collapseOneTimeMsg = true;
+
+
+
 })
 
 ;
