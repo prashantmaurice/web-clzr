@@ -13,70 +13,79 @@
 
 <!--Birthday special-->
 <div class="box box-success box-solid" >
-    <div class="box-header with-border pointer " ng-click="collapseBDSpecial = !collapseBDSpecial">
+    <div class="box-header with-border pointer " ng-click="toggleCampaign('birthdayWish')">
         <i class="d fa fa-birthday-cake heading-text"></i><div class="box-title heading-text">BIRTHDAY SPECIAL</div>
         <br/><span>Offer your customers birthday deals they can’t refuse</span>
         <div class="box-tools pull-right">
-            <button class="btn btn-box-tool"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-box-tool">
+                Click to
+                <span ng-if="campaigns.birthdayWish.activated">deactivate</span>
+                <span ng-if="!campaigns.birthdayWish.activated">activate</span>
+            </button>
         </div>
     </div><!-- /.box-header -->
-    <div collapse="collapseBDSpecial">
+    <div collapse="!campaigns.birthdayWish.activated">
         <div class="box-body body-align-left no-padding" >
             <div class="container-fluid box-container">
-                Wish club members happy birthday with a special reward.
-                <hr/>
-                <form class="form-horizontal">
+
+                <form class="form-horizontal birthday-special">
+                    Wish club members happy birthday with a special reward.
+                    <hr/>
                     <fieldset>
                         <!-- Textarea -->
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="birthdayOfferText">Customers will receive:</label>
                             <div class="col-md-9 rel-pos">
-                                <span class="prefix">Happy Birthday! Come in and get:</span>
+                                <span class="prefix" ng-bind="campaigns.birthdayWish.messagePrefix">Happy Birthday! Come in and get:</span>
                                 <span class="char-count text-muted">29/60</span>
-                                <textarea rows="2" class="form-control" id="birthdayOfferText" name="birthdayOfferText" placeholder="Enter the reward (e.g. a free coffee)"></textarea>
+                                <textarea rows="2" ng-model="campaigns.birthdayWish.message" class="form-control" id="birthdayOfferText" name="birthdayOfferText" placeholder="Enter the reward (e.g. a free coffee)"></textarea>
                             </div>
                         </div>
                     </fieldset>
+                    <span class="text-muted">This message will be sent on the first day of the birthday month and the actual birthday. It expires at the end of the birthday month.</span>
                 </form>
 
-                <span class="text-muted">This message will be sent on the first day of the birthday month and the actual birthday. It expires at the end of the birthday month.</span>
 
             </div>
 
         </div><!-- /.box-body -->
         <div class="box-footer">
             <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-            <button type="submit" class="btn btn-success pull-right" >Activate</button>
+            <button ng-click="saveCampaigns('saved')" ng-autodisable type="submit" class="btn btn-success pull-right" >Save</button>
         </div><!-- /.box-footer -->
     </div>
 </div>
 
 <!--Visit Reminder-->
 <div class="box box-info box-solid" >
-    <div class="box-header with-border pointer " ng-click="collapseVisitReminder = !collapseVisitReminder">
+    <div class="box-header with-border pointer " ng-click="toggleCampaign('visitReminder')">
         <i class="d fa fa-birthday-cake heading-text"></i><div class="box-title heading-text">VISIT REMINDER</div>
         <br/><span>Give customers a reason to come in when they haven't visited in a set time</span>
         <div class="box-tools pull-right">
-            <button class="btn btn-box-tool"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-box-tool">
+                Click to
+                <span ng-if="campaigns.visitReminder.activated">deactivate</span>
+                <span ng-if="!campaigns.visitReminder.activated">activate</span>
+            </button>
         </div>
     </div><!-- /.box-header -->
-    <div collapse="collapseVisitReminder">
+    <div collapse="!campaigns.visitReminder.activated">
         <div class="box-body body-align-left no-padding" >
             <div class="container-fluid box-container">
 
-                <form class="form-horizontal">
+                <form class="form-horizontal visit-reminder">
                     <fieldset>
                         <!-- Select Basic -->
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="visitReminderPeriod">Send this message to club members who haven’t visited in</label>
                             <div class="col-md-9">
-                                <select id="visitReminderPeriod" name="visitReminderPeriod" class="form-control">
+                                <select ng-model="campaigns.visitReminder.days" convert-to-number id="visitReminderPeriod" name="visitReminderPeriod" class="form-control">
                                     <option value="7">7 days</option>
                                     <option value="14">14 days</option>
                                     <option value="21">21 days</option>
-                                    <option value="1">1 month</option>
-                                    <option value="3">3 months</option>
-                                    <option value="6">6 months</option>
+                                    <option value="30">1 month</option>
+                                    <option value="90">3 months</option>
+                                    <option value="180">6 months</option>
                                 </select>
                             </div>
                         </div>
@@ -84,9 +93,9 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="visitReminderText">Customers will receive:</label>
                             <div class="col-md-9 rel-pos">
-                                <span class="prefix">We miss you! Come in and get:</span>
+                                <span class="prefix" ng-bind="campaigns.visitReminder.messagePrefix">We miss you! Come in and get:</span>
                                 <span class="char-count text-muted">29/60</span>
-                                <textarea rows="2" class="form-control" id="visitReminderText" name="visitReminderText" placeholder="Enter the reward (e.g. a free coffee)"></textarea>
+                                <textarea rows="2" ng-model="campaigns.visitReminder.message" class="form-control" id="visitReminderText" name="visitReminderText" placeholder="Enter the reward (e.g. a free coffee)"></textarea>
                             </div>
                         </div>
 
@@ -99,38 +108,43 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
             <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-            <button type="submit" class="btn btn-info pull-right" >Activate</button>
+            <button ng-click="saveCampaigns('saved')" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
         </div><!-- /.box-footer -->
     </div>
 </div>
 
 <!--Geo Targeting-->
 <div class="box box-warning box-solid" >
-    <div class="box-header with-border pointer " ng-click="collapseGeoTarget = !collapseGeoTarget">
+    <div class="box-header with-border pointer " ng-click="toggleCampaign('neighbourhoodPerks')">
         <i class="d fa fa-map-marker heading-text"></i><div class="box-title heading-text">GEO TARGET</div>
         <br/><span>Give your customers an incentive to stop by</span>
         <div class="box-tools pull-right">
-            <button class="btn btn-box-tool"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-box-tool">
+                Click to
+                <span ng-if="campaigns.neighbourhoodPerks.activated">deactivate</span>
+                <span ng-if="!campaigns.neighbourhoodPerks.activated">activate</span>
+            </button>
         </div>
     </div><!-- /.box-header -->
-    <div collapse="collapseGeoTarget">
+    <div collapse="!campaigns.neighbourhoodPerks.activated">
         <div class="box-body body-align-left no-padding" >
             <div class="container-fluid box-container">
-                Offer customers an incentive to come in when they get close to your business
-                <hr/>
-                <form class="form-horizontal">
+
+                <form class="form-horizontal geo-targeting">
+                    Offer customers an incentive to come in when they get close to your business
+                    <hr/>
                     <fieldset>
                         <!-- Select Basic -->
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="geoTargetRadius">Distance from business</label>
                             <div class="col-md-9">
-                                <select id="geoTargetRadius" name="geoTargetRadius" class="form-control">
-                                    <option value="0.5 KM">0.5 KM</option>
-                                    <option value="1 KM">1 KM</option>
-                                    <option value="2 KM">2 KM</option>
-                                    <option value="10 KM">10 KM</option>
-                                    <option value="20 KM">20 KM</option>
-                                    <option value="50 KM">50 KM</option>
+                                <select ng-model="campaigns.neighbourhoodPerks.distance" convert-to-number id="geoTargetRadius" name="geoTargetRadius" class="form-control">
+                                    <option value="0.5">0.5 KM</option>
+                                    <option value="1">1 KM</option>
+                                    <option value="2">2 KM</option>
+                                    <option value="10">10 KM</option>
+                                    <option value="20">20 KM</option>
+                                    <option value="50">50 KM</option>
                                 </select>
                             </div>
                         </div>
@@ -139,7 +153,100 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="geoTargetExpiry">Offer expires in</label>
                             <div class="col-md-9">
-                                <select id="geoTargetExpiry" name="geoTargetExpiry" class="form-control">
+                                <select ng-model="campaigns.neighbourhoodPerks.expiry" convert-to-number="" id="geoTargetExpiry" name="geoTargetExpiry" class="form-control">
+                                    <option value="1">One day after receipt</option>
+                                    <option value="7">One week after receipt</option>
+                                    <option value="30">One month after receipt</option>
+                                    <option value="90">Three months after receipt</option>
+                                    <option value="180">Six months after receipt</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="geoTargetText">Customers will receive:</label>
+                            <div class="col-md-9 rel-pos">
+                                <span class="prefix" ng-bind="campaigns.neighbourhoodPerks.messagePrefix">We are now offering:</span>
+                                <span class="char-count text-muted">29/60</span>
+                                <textarea rows="2" ng-model="campaigns.neighbourhoodPerks.message" class="form-control" id="geoTargetText" name="geoTargetText" placeholder="Enter the reward (e.g. a free coffee)"></textarea>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+
+            </div>
+
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+            <button ng-click="saveCampaigns('saved')" ng-autodisable type="submit" class="btn btn-warning pull-right" >Save</button>
+        </div><!-- /.box-footer -->
+    </div>
+</div>
+
+<!--One time message-->
+<div class="box box-danger box-solid" >
+    <div class="box-header with-border pointer " ng-click="collapseOneTimeMsg = !collapseOneTimeMsg">
+        <i class="d fa fa-comment heading-text"></i><div class="box-title heading-text">ONE-TIME MESSAGE</div>
+        <br/><span>Send a custom one-time message or reward to your club members</span>
+        <div class="box-tools pull-right">
+            <button class="btn btn-box-tool"><i class="fa fa-plus"></i></button>
+        </div>
+    </div><!-- /.box-header -->
+    <div collapse="collapseOneTimeMsg">
+        <div class="box-body body-align-left no-padding" >
+            <div class="container-fluid box-container">
+                <form class="form-horizontal one-time-msg">
+                    Send a custom one-time message or reward to your club members
+                    <hr/>
+                    <fieldset>
+
+                        <div class="form-group align-center">
+                            <div class="col-md-12">
+                                <div class="btn-group">
+                                    <label class="btn btn-info" ng-model="oneTimeMsgType" btn-radio="'reward'">Message with Reward</label>
+                                    <label class="btn btn-info" ng-model="oneTimeMsgType" btn-radio="'msg'">General Message</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="oneTimeMsgRecipients">Recipients</label>
+                            <div class="col-md-9">
+                                <select id="oneTimeMsgRecipients" name="oneTimeMsgRecipients" class="form-control">
+                                    <option value="M">Men</option>
+                                    <option value="F">Women</option>
+                                    <option value="B">Both</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="oneTimeMsgRadius">Distance from business</label>
+                            <div class="col-md-9">
+                                <select id="oneTimeMsgRadius" name="oneTimeMsgRadius" class="form-control">
+                                    <option value="0.5 KM">0.5 KM</option>
+                                    <option value="1 KM">1 KM</option>
+                                    <option value="2 KM">2 KM</option>
+                                    <option value="10 KM">10 KM</option>
+                                    <option value="20 KM">20 KM</option>
+                                    <option value="50 KM">50 KM</option>
+                                    <option value="Everywhere">Everywhere</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group" ng-if="oneTimeMsgType=='reward'">
+                            <label class="col-md-3 control-label" for="oneTimeMsgExpiry">Offer expires in</label>
+                            <div class="col-md-9">
+                                <select id="oneTimeMsgExpiry" name="oneTimeMsgExpiry" class="form-control">
                                     <option value="One day after receipt">One day after receipt</option>
                                     <option value="One week after receipt">One week after receipt</option>
                                     <option value="One month after receipt">One month after receipt</option>
@@ -151,11 +258,11 @@
 
                         <!-- Textarea -->
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="geoTargetText">Customers will receive:</label>
+                            <label class="col-md-3 control-label" for="oneTimeMsgText">Customers will receive:</label>
                             <div class="col-md-9 rel-pos">
-                                <span class="prefix">We are now offering:</span>
                                 <span class="char-count text-muted">29/60</span>
-                                <textarea rows="2" class="form-control" id="geoTargetText" name="geoTargetText" placeholder="Enter the reward (e.g. a free coffee)"></textarea>
+                                <textarea rows="3" class="form-control no-prefix" id="oneTimeMsgText" name="oneTimeMsgText"
+                                          placeholder="Enter message only (e.g. C’mon by soon for great prices)"></textarea>
                             </div>
                         </div>
 
@@ -168,22 +275,22 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
             <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-            <button type="submit" class="btn btn-warning pull-right" >Activate</button>
+            <button type="submit" class="btn btn-danger pull-right" >Activate</button>
         </div><!-- /.box-footer -->
     </div>
 </div>
 
-
-<div class="box box-danger box-solid">
-    <div class="box-header with-border">
-        <i class="d fa fa-comment heading-text"></i><div class="box-title heading-text">ONE-TIME MESSAGE</div>
-        <br/><span>Send a custom one-time message or reward to your club members</span>
-    </div><!-- /.box-header -->
-    <div class="box-body body-align-left">
-        Send a custom one-time message or reward to your club members
-    </div><!-- /.box-body -->
+<!--Bottom info-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="callout callout-info rel-pos">
+            <p>
+                <button class="btn btn-success">Upgrade</button> You have 0 messages left with your plan.
+                <b>Get more now.</b>
+            </p>
+        </div>
+    </div>
 </div>
-
 
 <!--<div class="row">-->
   <!--<div class="col-md-12">-->

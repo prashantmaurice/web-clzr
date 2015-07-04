@@ -27,7 +27,11 @@ angular.module('clozerrWeb').directive('ngReallyClick', [function() {
         require: 'ngModel',
         link: function(scope, element, attrs, ngModel) {
             ngModel.$parsers.push(function(val) {
-                return parseInt(val, 10);
+                if (val % 1 === 0){
+                    return parseInt(val, 10);
+                } else {
+                    return parseFloat(val);
+                }
             });
             ngModel.$formatters.push(function(val) {
                 return '' + val;

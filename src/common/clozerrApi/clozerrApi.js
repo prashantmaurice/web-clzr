@@ -205,18 +205,36 @@ angular.module('clozerrWeb.api', [])
             }
         };
 
-        /**
-         * Get details of a vendor
-         * @param vendor_id
-         * @returns {HttpPromise}
-         */
-        api.vendorDetails = function (vendor_id) {
-            return $http.get(urlBase + 'v2/vendor/get/details', {
-                params: {
-                    vendor_id: vendor_id
-                }
-            });
+        api.vendor = {
+            details: function (vendor_id){
+                return $http.get(urlBase + 'v2/vendor/get/details', {
+                    params: {
+                        vendor_id: vendor_id
+                    }
+                }).then(function(resp){
+                    return resp.data;
+                }, function(error){
+                    console.log(error);
+                    return $q.reject('Server unreachable. Please try again!');
+                });
+            },
+            edit: function (access_token, vendor_id, vendor) {
+                return $http.get(urlBase + 'v2/vendor/details/set', {
+                    params: {
+                        vendor_id: vendor_id,
+                        access_token: access_token,
+                        vendor: vendor
+                    },
+                    paramSerializer: '$httpParamSerializerJQLike'
+                }).then(function(resp){
+                    return resp.data;
+                }, function(error){
+                    console.log(error);
+                    return $q.reject('Server unreachable. Please try again!');
+                });
+            }
         };
+
 
         return api;
 });
