@@ -13,18 +13,14 @@
 
 <!--Birthday special-->
 <div class="box box-success box-solid" >
-    <div class="box-header with-border pointer " ng-click="toggleCampaign('birthdayWish')">
+    <div class="box-header with-border pointer " ng-click="openBoxes.birthdayWish = !openBoxes.birthdayWish">
         <i class="d fa fa-birthday-cake heading-text"></i><div class="box-title heading-text">BIRTHDAY SPECIAL</div>
         <br/><span>Offer your customers birthday deals they can’t refuse</span>
-        <div class="box-tools pull-right">
-            <button class="btn btn-box-tool">
-                Click to
-                <span ng-if="campaigns.birthdayWish.activated">deactivate</span>
-                <span ng-if="!campaigns.birthdayWish.activated">activate</span>
-            </button>
-        </div>
+        <!--<div class="box-tools pull-right">-->
+
+        <!--</div>-->
     </div><!-- /.box-header -->
-    <div collapse="!campaigns.birthdayWish.activated">
+    <div collapse="!openBoxes.birthdayWish">
         <div class="box-body body-align-left no-padding" >
             <div class="container-fluid box-container">
 
@@ -50,7 +46,10 @@
 
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+            <button class="btn btn-primary" ng-click="toggleCampaign('birthdayWish')">
+                <span ng-if="campaigns.birthdayWish.activated">Deactivate</span>
+                <span ng-if="!campaigns.birthdayWish.activated">Activate</span>
+            </button>
             <button ng-click="saveCampaigns('saved')" ng-autodisable type="submit" class="btn btn-success pull-right" >Save</button>
         </div><!-- /.box-footer -->
     </div>
@@ -58,18 +57,14 @@
 
 <!--Visit Reminder-->
 <div class="box box-info box-solid" >
-    <div class="box-header with-border pointer " ng-click="toggleCampaign('visitReminder')">
-        <i class="d fa fa-birthday-cake heading-text"></i><div class="box-title heading-text">VISIT REMINDER</div>
+    <div class="box-header with-border pointer" ng-click="openBoxes.visitReminder = !openBoxes.visitReminder" >
+        <i class="d fa fa-bell heading-text"></i><div class="box-title heading-text">VISIT REMINDER</div>
         <br/><span>Give customers a reason to come in when they haven't visited in a set time</span>
-        <div class="box-tools pull-right">
-            <button class="btn btn-box-tool">
-                Click to
-                <span ng-if="campaigns.visitReminder.activated">deactivate</span>
-                <span ng-if="!campaigns.visitReminder.activated">activate</span>
-            </button>
-        </div>
+        <!--<div class="box-tools pull-right">-->
+            <!-- -->
+        <!--</div>-->
     </div><!-- /.box-header -->
-    <div collapse="!campaigns.visitReminder.activated">
+    <div collapse="!openBoxes.visitReminder">
         <div class="box-body body-align-left no-padding" >
             <div class="container-fluid box-container">
 
@@ -108,6 +103,10 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
             <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+            <button class="btn btn-primary" ng-click="toggleCampaign('visitReminder')">
+                <span ng-if="campaigns.visitReminder.activated">Deactivate</span>
+                <span ng-if="!campaigns.visitReminder.activated">Activate</span>
+            </button>
             <button ng-click="saveCampaigns('saved')" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
         </div><!-- /.box-footer -->
     </div>
@@ -115,18 +114,14 @@
 
 <!--Geo Targeting-->
 <div class="box box-warning box-solid" >
-    <div class="box-header with-border pointer " ng-click="toggleCampaign('neighbourhoodPerks')">
+    <div class="box-header with-border pointer " ng-click="openBoxes.neighbourhoodPerks = !openBoxes.neighbourhoodPerks">
         <i class="d fa fa-map-marker heading-text"></i><div class="box-title heading-text">GEO TARGET</div>
         <br/><span>Give your customers an incentive to stop by</span>
         <div class="box-tools pull-right">
-            <button class="btn btn-box-tool">
-                Click to
-                <span ng-if="campaigns.neighbourhoodPerks.activated">deactivate</span>
-                <span ng-if="!campaigns.neighbourhoodPerks.activated">activate</span>
-            </button>
+
         </div>
     </div><!-- /.box-header -->
-    <div collapse="!campaigns.neighbourhoodPerks.activated">
+    <div collapse="!openBoxes.neighbourhoodPerks">
         <div class="box-body body-align-left no-padding" >
             <div class="container-fluid box-container">
 
@@ -182,6 +177,10 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
             <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+            <button class="btn btn-primary" ng-click="toggleCampaign('neighbourhoodPerks')">
+                <span ng-if="campaigns.neighbourhoodPerks.activated">Deactivate</span>
+                <span ng-if="!campaigns.neighbourhoodPerks.activated">Activate</span>
+            </button>
             <button ng-click="saveCampaigns('saved')" ng-autodisable type="submit" class="btn btn-warning pull-right" >Save</button>
         </div><!-- /.box-footer -->
     </div>
@@ -277,6 +276,10 @@
             <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
             <button type="submit" class="btn btn-danger pull-right" >Activate</button>
         </div><!-- /.box-footer -->
+
+    </div>
+    <div class="overlay">
+        <i class="fa fa-bolt"></i>
     </div>
 </div>
 

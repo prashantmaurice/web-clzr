@@ -19,7 +19,11 @@ angular.module( 'clozerrWeb.dashboard.campaigns', [
 
 .controller( 'DashboardCampaignsCtrl', function DashboardCampaignsCtrl( $scope, api, utils, Notification ) {
 
-
+        $scope.openBoxes = {
+            birthdayWish: false,
+            visitReminder: false,
+            neighbourhoodPerks: false
+        };
 
         $scope.campaigns = {
             birthdayWish: {
@@ -48,13 +52,11 @@ angular.module( 'clozerrWeb.dashboard.campaigns', [
 
         function loadCampaigns () {
             api.vendor.details(utils.profile.vendor_id).then(function(details){
-
                 var campaigns = details.settings;
-
                 angular.forEach(campaigns, function(campaign){
                     $scope.campaigns[campaign.type] = campaign;
                     $scope.campaigns[campaign.type].activated = (campaign.activated == "false") ? false : true;
-
+                    $scope.openBoxes[campaign.type] = $scope.campaigns[campaign.type].activated;
                 });
             });
         }
@@ -63,7 +65,6 @@ angular.module( 'clozerrWeb.dashboard.campaigns', [
         $scope.saveCampaigns = function(msg) {
             var vendor ={
                 settings: $scope.campaigns
-
             };
             api.vendor.edit(utils.token, utils.profile.vendor_id, vendor).then(function(data){
                 Notification.success('Campaign ' + msg + ' !');
@@ -73,11 +74,8 @@ angular.module( 'clozerrWeb.dashboard.campaigns', [
         };
 
         $scope.toggleCampaign = function(campaign) {
-
             $scope.campaigns[campaign].activated = !$scope.campaigns[campaign].activated;
             var msg = $scope.campaigns[campaign].activated ? 'activated' : 'deactivated';
-
-
             $scope.saveCampaigns(msg);
         };
 

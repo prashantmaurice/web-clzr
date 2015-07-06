@@ -17,8 +17,17 @@ angular.module( 'clozerrWeb.dashboard.profile', [
   });
 })
 
-.controller( 'DashboardProfileCtrl', function DashboardProfileCtrl( $scope ) {
-  // This is simple a demo for UI Boostrap. 
+.controller( 'DashboardProfileCtrl', function DashboardProfileCtrl( $scope, api, utils ) {
+  // This is simple a demo for UI Boostrap.
+
+      /**
+       * image
+       * location
+       * name
+       * phone
+       */
+
+
 })
 
 ;
