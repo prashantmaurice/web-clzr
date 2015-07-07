@@ -48,7 +48,6 @@ angular.module( 'clozerrWeb.dashboard.profile', [
         }
 
       api.vendor.details(utils.profile.vendor_id).then(function(data){
-        console.log(data);
         loadData(data, $scope.data);
       });
 
@@ -60,30 +59,29 @@ angular.module( 'clozerrWeb.dashboard.profile', [
 
         $scope.saveDetails = function() {
             api.vendor.edit(utils.token, utils.profile.vendor_id, $scope.data).then(function(data){
-                console.log(data);
                 loadData(data, $scope.data);
                 Notification.success('Saved !');
             });
         };
 
         function reverseGeocode (location) {
-            var geocoder = new google.maps.Geocoder();
-            console.log('Reverse geocoding');
-            console.log(location);
-            var latlng = new google.maps.LatLng(location[0], location[1]);
-            geocoder.geocode({'latLng': latlng}, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    if (results[1]) {
-                        console.log(results);
-                        console.log(results[1]);
-                        console.log(results[1].formatted_address);
-                    } else {
-                        console.log('No results found');
-                    }
-                } else {
-                    console.log('Geocoder failed due to: ' + status);
-                }
-            });
+            //var geocoder = new google.maps.Geocoder();
+            //console.log('Reverse geocoding');
+            //console.log(location);
+            //var latlng = new google.maps.LatLng(location[0], location[1]);
+            //geocoder.geocode({'latLng': latlng}, function(results, status) {
+            //    if (status == google.maps.GeocoderStatus.OK) {
+            //        if (results[1]) {
+            //            console.log(results);
+            //            console.log(results[1]);
+            //            console.log(results[1].formatted_address);
+            //        } else {
+            //            console.log('No results found');
+            //        }
+            //    } else {
+            //        console.log('Geocoder failed due to: ' + status);
+            //    }
+            //});
         }
 
 })

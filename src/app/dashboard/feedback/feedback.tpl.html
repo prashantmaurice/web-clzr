@@ -1,1 +1,79 @@
-feedback view
+<div class="row">
+    <div class="col-md-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-number">Get Feedback !</span>
+                <span class="info-box-text">Hear what your customers have to say</span>
+            </div><!-- /.info-box-content -->
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Your feedback questions</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left ">
+                <form class="">
+                    <fieldset>
+                        <div class="form-group input-group" ng-repeat="question in questions track by $index">
+                            <input ng-model="questions[$index]" type="text" class="form-control" placeholder="Type your question here">
+                            <span class="input-group-btn">
+                              <button ng-really-message="Are you sure to delete this question?"
+                                      ng-really-click="deleteQuestion($index)" class="btn btn-danger btn-flat" type="button"><i class="fa fa-times"></i></button>
+                            </span>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button ng-click="addQuestion()" class="btn btn-primary" ><i class="fa fa-plus"> </i></button>
+                <button ng-click="saveQuestions()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Feedbacks</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left">
+                <table class="table table-bordered">
+                    <tbody><tr>
+                        <th style="width: 10px">#</th>
+                        <th>User</th>
+                        <th>Rating</th>
+                        <th>Remarks</th>
+                        <th style="width: 40px">Reply</th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>User 1</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                            </div>
+                        </td>
+                        <td>Nice food</td>
+                        <td><button class="btn btn-xs btn-info" ng-click="reply()"><i class="fa fa-reply"></i></button></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a >«</a></li>
+                    <li><a >1</a></li>
+                    <li><a >2</a></li>
+                    <li><a >3</a></li>
+                    <li><a >»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
