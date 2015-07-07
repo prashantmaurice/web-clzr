@@ -1,7 +1,7 @@
 /**
  * Created by shahidh on 28/6/15.
  * clozerrApi.js
- * Contains all API accessing functions
+ * Contains all web-API accessing functions
  */
 
 angular.module('clozerrWeb.api', [])
@@ -205,7 +205,16 @@ angular.module('clozerrWeb.api', [])
             }
         };
 
+        /**
+         * Vendor object
+         * @type {{details: Function, edit: Function}}
+         */
         api.vendor = {
+            /**
+             * Fetch vendor details
+             * @param vendor_id
+             * @returns data object on success, else reject
+             */
             details: function (vendor_id){
                 return $http.get(urlBase + 'v2/vendor/get/details', {
                     params: {
@@ -218,6 +227,13 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject('Server unreachable. Please try again!');
                 });
             },
+            /**
+             * Method to edit a field in vendor details object
+             * @param access_token
+             * @param vendor_id
+             * @param vendor
+             * @returns {*}
+             */
             edit: function (access_token, vendor_id, vendor) {
                 return $http.get(urlBase + 'v2/vendor/details/set', {
                     params: {
@@ -234,6 +250,7 @@ angular.module('clozerrWeb.api', [])
                 });
             }
         };
+
 
 
         return api;
