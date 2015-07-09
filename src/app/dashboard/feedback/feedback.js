@@ -70,6 +70,14 @@ angular.module( 'clozerrWeb.dashboard.feedback', [
                 }
             });
         };
+        $scope.getNumber = function(num) {
+            return new Array(num);
+        };
+        $scope.reviews = [];
+        api.vendor.reviews(utils.token, utils.profile.vendor_id).then(function(data){
+        //api.vendor.reviews('4dd2cee48ddecfd9ae6e6a120d410c97', '55293297b6cd430f332841c4').then(function(data){
+            $scope.reviews = data ;
+        });
 
 })
 

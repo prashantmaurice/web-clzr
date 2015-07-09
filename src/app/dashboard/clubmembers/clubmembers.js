@@ -17,8 +17,19 @@ angular.module( 'clozerrWeb.dashboard.clubmembers', [
   });
 })
 
-.controller( 'DashboardClubmembersCtrl', function DashboardClubmembersCtrl( $scope ) {
-  // This is simple a demo for UI Boostrap. 
+.controller( 'DashboardClubmembersCtrl', function DashboardClubmembersCtrl( $scope, api, utils ) {
+      $scope.users = [];
+    api.vendor.clubmembers(utils.token).then(function(data){
+      angular.forEach(data, function(obj){
+        if (obj.auth_type == 'facebook'){
+          obj.pic = "https://graph.facebook.com/" + obj.social_id + "/picture?type=small";
+        } else if (obj.auth_type == 'google') {
+          obj.pic = obj.profile.picture;
+        }
+      });
+      $scope.users = data;
+
+    });
 })
 
 ;

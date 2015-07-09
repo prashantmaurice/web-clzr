@@ -91,7 +91,7 @@ angular.module('clozerrWeb.api', [])
                         vendor_id: vendor_id
                     }
                 }).then(function(resp){
-                    return resp.data.offers;
+                    return resp.data.offers_filled;
                 }, function(error){
                     return $q.reject(error);
                 });
@@ -245,6 +245,42 @@ angular.module('clozerrWeb.api', [])
                 }).then(function(resp){
                     return resp.data;
                 }, function(error){
+                    console.log(error);
+                    return $q.reject('Server unreachable. Please try again!');
+                });
+            },
+            /**
+             * Get the details of club members
+             * @param access_token
+             * @returns {*}
+             */
+            clubmembers: function(access_token) {
+                return $http.get(urlBase + 'v2/vendor/club/get', {
+                    params: {
+                        access_token: access_token
+                    }
+                }).then(function (resp){
+                    return resp.data;
+                }, function (error) {
+                    console.log(error);
+                    return $q.reject('Server unreachable. Please try again!');
+                });
+            },
+            /**
+             * Fetch all reviews about a vendor
+             * @param access_token
+             * @param vendor_id
+             * @returns {*}
+             */
+            reviews: function (access_token, vendor_id) {
+                return $http.get(urlBase + 'v2/vendor/review/all', {
+                    params: {
+                        access_token: access_token,
+                        vendor_id: vendor_id
+                    }
+                }).then(function (resp){
+                    return resp.data;
+                }, function (error) {
                     console.log(error);
                     return $q.reject('Server unreachable. Please try again!');
                 });

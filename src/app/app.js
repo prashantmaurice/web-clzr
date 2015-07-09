@@ -14,7 +14,7 @@ angular.module( 'clozerrWeb', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/login' );
+  $urlRouterProvider.otherwise( '/dashboard/home' );
 })
 
 .run( function run ($rootScope, utils, $state) {

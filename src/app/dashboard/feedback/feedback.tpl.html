@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="fa fa-star"></i></span>
             <div class="info-box-content">
                 <span class="info-box-number">Get Feedback !</span>
                 <span class="info-box-text">Hear what your customers have to say</span>
@@ -45,21 +45,20 @@
                 <table class="table table-bordered">
                     <tbody><tr>
                         <th style="width: 10px">#</th>
-                        <th>User</th>
+                        <th>Date</th>
                         <th>Rating</th>
                         <th>Remarks</th>
                         <th style="width: 40px">Reply</th>
                     </tr>
-                    <tr>
-                        <td>1.</td>
-                        <td>User 1</td>
+                    <tr ng-if="!reviews"><td colspan="5">No reviews yet</td></tr>
+                    <tr ng-repeat="review in reviews track by $index">
+                        <td ng-bind="$index + 1">1</td>
+                        <td ng-bind="review.date_created | date:'medium'" style="width:210px;">11-12-2014</td>
                         <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                            </div>
+                            <i class="fa fa-star" ng-repeat="i in getNumber(review.stars[0]) track by $index"></i>
                         </td>
-                        <td>Nice food</td>
-                        <td><button class="btn btn-xs btn-info" ng-click="reply()"><i class="fa fa-reply"></i></button></td>
+                        <td ng-bind="review.remarks">Remarks</td>
+                        <td><button class="btn btn-xs btn-info" disabled><i class="fa fa-reply"></i></button></td>
                     </tr>
 
                     </tbody>
