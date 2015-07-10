@@ -1,7 +1,7 @@
 
 angular.module( 'clozerrWeb.dashboard.profile', [
   'ui.router',
-  'placeholders'
+    'ngFileUpload'
 ])
 
 .config(function config( $stateProvider ) {
@@ -17,7 +17,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
   });
 })
 
-.controller( 'DashboardProfileCtrl', function DashboardProfileCtrl( $scope, api, utils, Notification ) {
+.controller( 'DashboardProfileCtrl', function DashboardProfileCtrl( $scope, api, utils, Notification, Upload, $timeout ) {
 
       /**
        * image str
@@ -84,6 +84,43 @@ angular.module( 'clozerrWeb.dashboard.profile', [
             //});
         }
 
+        var policy = {};
+        api.vendor.upload(utils.token, '').then(function(data){
+            console.log(data);
+            policy = data;
+        });
+
+        $scope.upload = function (files) {
+            if (files && files.length) {
+
+                    var file = files[0];
+                    Upload.upload({
+                        url: 'https://clozerr.s3.amazonaws.com/', //S3 upload url including bucket name
+                        method: 'POST',
+                        fields : {
+                            "Content-Type": file.type !== '' ? file.type : 'application/octet-stream', // content type of the file (NotEmpty)
+                            key: policy.key, // the key to store the file on S3, could be file name or customized
+                            AWSAccessKeyId: policy.access_key,
+                            acl: 'public-read', // sets the access to the uploaded file in the bucket: private or public
+                            policy: policy.policy, // base64-encoded json policy (see article below)
+                            signature: policy.signature // base64-encoded signature based on policy string (see article below)
+                        },
+                        file: file
+                    }).progress(function (evt) {
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total, 10);
+                        $scope.log = 'progress: ' + progressPercentage + '% ' +
+                            evt.config.file.name + '\n' + $scope.log;
+                        console.log('progress: ' + progressPercentage + '% ' +
+                            evt.config.file.name + '\n');
+                    }).success(function (data, status, headers, config) {
+                        $timeout(function() {
+                            $scope.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + $scope.log;
+                            console.log('file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n');
+                        });
+                    });
+
+            }
+        };
 })
 
 ;

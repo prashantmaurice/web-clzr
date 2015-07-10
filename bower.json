@@ -1,6 +1,6 @@
 {
   "name": "clozerrWeb",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "devDependencies": {
     "angular": "~1.2",
     "angular-mocks": "~1.2",
@@ -18,7 +18,8 @@
     "angular-mocks": "~1.4.1",
     "angular-ui-bootstrap-datetimepicker": "~0.11.2",
     "components-font-awesome": "~4.3.0",
-    "angular-animate": "~1.4.1"
+    "angular-animate": "~1.4.1",
+    "ng-file-upload": "~5.0.9"
   },
   "resolutions": {
     "angular": "~1.4.1",

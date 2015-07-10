@@ -73,7 +73,11 @@
                 <h3 class="box-title">Image</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <img class="img-polaroid" ph-img="300x400" />
+                <!--<img class="img-polaroid" ph-img="300x400" />-->
+                <div class="btn btn-success" ngf-select ngf-change="upload($files)" ngf-multiple="false">Select File</div>
+
+                <img ngf-src="file" />
+
             </div><!-- /.box-body -->
         </div>
     </div>

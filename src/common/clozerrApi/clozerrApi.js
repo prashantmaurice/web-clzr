@@ -284,6 +284,25 @@ angular.module('clozerrWeb.api', [])
                     console.log(error);
                     return $q.reject('Server unreachable. Please try again!');
                 });
+            },
+            /**
+             * S3 Upload parameters
+             * @param access_token
+             * @param ext
+             * @returns {*}
+             */
+            upload: function(access_token, ext) {
+                return $http.get(urlBase + 'vendor/upload-policy', {
+                    params: {
+                        access_token: access_token,
+                        ext: ext
+                    }
+                }).then(function (resp){
+                    return resp.data;
+                }, function (error) {
+                    console.log(error);
+                    return $q.reject('Server unreachable. Please try again!');
+                });
             }
         };
 
