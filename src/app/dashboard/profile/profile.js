@@ -41,14 +41,11 @@ angular.module( 'clozerrWeb.dashboard.profile', [
         function loadData (input, output) {
             angular.forEach(output, function(val, key){
                 output[key] = input[key];
-                if(key == 'location'){
-                    reverseGeocode(output[key]);
-                }
             });
         }
 
       api.vendor.details(utils.profile.vendor_id).then(function(data){
-          console.log(data);
+          console.log("vendor", data);
         loadData(data, $scope.data);
       });
 
@@ -65,33 +62,20 @@ angular.module( 'clozerrWeb.dashboard.profile', [
             });
         };
 
-        function reverseGeocode (location) {
-            //var geocoder = new google.maps.Geocoder();
-            //console.log('Reverse geocoding');
-            //console.log(location);
-            //var latlng = new google.maps.LatLng(location[0], location[1]);
-            //geocoder.geocode({'latLng': latlng}, function(results, status) {
-            //    if (status == google.maps.GeocoderStatus.OK) {
-            //        if (results[1]) {
-            //            console.log(results);
-            //            console.log(results[1]);
-            //            console.log(results[1].formatted_address);
-            //        } else {
-            //            console.log('No results found');
-            //        }
-            //    } else {
-            //        console.log('Geocoder failed due to: ' + status);
-            //    }
-            //});
-        }
 
-        var policy = {};
+
+        $scope.iconPolicy = {};
+        $scope.appPolicy = {};
         api.vendor.upload(utils.token, '').then(function(data){
-            console.log(data);
-            policy = data;
+            $scope.appPolicy = data;
+            $scope.appLink = "http://clozerr.s3.amazonaws.com/" + data.key;
+        });
+        api.vendor.upload(utils.token, 'logo').then(function(data){
+            $scope.iconPolicy = data;
+            $scope.iconLink = "http://clozerr.s3.amazonaws.com/" + data.key;
         });
 
-        $scope.upload = function (files) {
+        $scope.upload = function (files, policy) {
             if (files && files.length) {
 
                     var file = files[0];
@@ -99,6 +83,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                         url: 'https://clozerr.s3.amazonaws.com/', //S3 upload url including bucket name
                         method: 'POST',
                         fields : {
+                            "Content-Length": file.size,
                             "Content-Type": file.type !== '' ? file.type : 'application/octet-stream', // content type of the file (NotEmpty)
                             key: policy.key, // the key to store the file on S3, could be file name or customized
                             AWSAccessKeyId: policy.access_key,
@@ -109,15 +94,16 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                         file: file
                     }).progress(function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total, 10);
-                        $scope.log = 'progress: ' + progressPercentage + '% ' +
-                            evt.config.file.name + '\n' + $scope.log;
                         console.log('progress: ' + progressPercentage + '% ' +
                             evt.config.file.name + '\n');
                     }).success(function (data, status, headers, config) {
                         $timeout(function() {
-                            $scope.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + $scope.log;
+                            Notification.success("Image uploaded");
                             console.log('file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n');
                         });
+                    }).error(function(error){
+                        console.log(error);
+                        Notification.error("Upload failed. Please try again.");
                     });
 
             }
@@ -160,7 +146,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                         console.log(w, h); // image is loaded; sizes are available
 
                         if (h != 2*w) {
-                            $scope.icon = [];
+                            $scope.app = [];
                             Notification.error("Image height must be twice the width, please try again.");
                         } else if (h == 2*w) {
                             Notification.success("Click Save to upload image.");
