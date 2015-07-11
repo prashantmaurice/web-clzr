@@ -48,6 +48,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
         }
 
       api.vendor.details(utils.profile.vendor_id).then(function(data){
+          console.log(data);
         loadData(data, $scope.data);
       });
 
@@ -121,6 +122,58 @@ angular.module( 'clozerrWeb.dashboard.profile', [
 
             }
         };
+
+        $scope.$watch('icon', function(file){
+            if (file){
+                var fr = new FileReader();
+                fr.onload = function () { // file is loaded
+                    var img = new Image();
+                    img.onload = function () {
+                        var w = img.width;
+                        var h = img.height;
+                        console.log(w, h); // image is loaded; sizes are available
+
+                        if (h != w) {
+                            $scope.icon = [];
+                            Notification.error("Image height and width must be equal, please try again.");
+                        } else if (h == w) {
+                            Notification.success("Click Save to upload image.");
+                        }
+                    };
+                    img.src = fr.result; // is the data URL because called with readAsDataURL
+                };
+                if (file){
+                    fr.readAsDataURL(file[0]); // I'm using a <input type="file"> for demonstrating
+                }
+            }
+
+        });
+
+        $scope.$watch('app', function(file){
+            if (file){
+                var fr = new FileReader();
+                fr.onload = function () { // file is loaded
+                    var img = new Image();
+                    img.onload = function () {
+                        var w = img.width;
+                        var h = img.height;
+                        console.log(w, h); // image is loaded; sizes are available
+
+                        if (h != 2*w) {
+                            $scope.icon = [];
+                            Notification.error("Image height must be twice the width, please try again.");
+                        } else if (h == 2*w) {
+                            Notification.success("Click Save to upload image.");
+                        }
+                    };
+                    img.src = fr.result; // is the data URL because called with readAsDataURL
+                };
+                if (file){
+                    fr.readAsDataURL(file[0]); // I'm using a <input type="file"> for demonstrating
+                }
+            }
+
+        });
 })
 
 ;

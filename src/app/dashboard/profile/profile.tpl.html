@@ -14,6 +14,20 @@
     <div class="col-md-6 col-sm-12">
         <div class="box box-info">
             <div class="box-header with-border">
+                <h3 class="box-title">Your Logo</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <img class="img-responsive" ngf-src="icon[0]" ngf-default-src="assets/img/icons/apple-touch-icon-precomposed.png" ngf-accept="'image/*'">
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <div class="btn btn-warning pull-left" ngf-select ng-model="icon">Change</div>
+                <button class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+
+        <div class="box box-info">
+            <div class="box-header with-border">
                 <h3 class="box-title">Business details</h3>
             </div><!-- /.box-header -->
             <div class="box-body body-align-left ">
@@ -70,15 +84,17 @@
     <div class="col-md-6 col-sm-12">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Image</h3>
+                <h3 class="box-title">App Image</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <!--<img class="img-polaroid" ph-img="300x400" />-->
-                <div class="btn btn-success" ngf-select ngf-change="upload($files)" ngf-multiple="false">Select File</div>
+                <img class="img-responsive" ngf-src="app[0]" ngf-default-src="assets/img/logo_300.png" ngf-accept="'image/*'">
 
-                <img ngf-src="file" />
 
             </div><!-- /.box-body -->
+            <div class="box-footer">
+                <div class="btn btn-warning pull-left" ngf-select ng-model="app">Change</div>
+                <button class="btn btn-info pull-right" >Save</button>
+            </div>
         </div>
     </div>
 </div>
