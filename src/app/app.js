@@ -4,6 +4,7 @@ angular.module( 'clozerrWeb', [
   'LocalForageModule',
   'clozerrWeb.about',
   'clozerrWeb.dashboard',
+  'clozerrWeb.home',
   'clozerrWeb.login',
   'clozerrWeb.logout',
   'clozerrWeb.api',
@@ -14,7 +15,7 @@ angular.module( 'clozerrWeb', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/dashboard/home' );
+  $urlRouterProvider.otherwise( '/' );
 })
 
 .run( function run ($rootScope, utils, $state) {
