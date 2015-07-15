@@ -1,21 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Antic+Slab);
 
-html,body {
-  height:100%;
-}
+
 
 .home-page {
-  h1 {
-    font-family: 'Antic Slab', serif;
-    font-size: 80px;
-    color: #DDCCEE;
-  }
 
-  .lead {
-    color: #DDCCEE;
-  }
-
-  /* Custom container */
   .container-full {
     margin: 0 auto;
     width: 100%;
@@ -24,6 +11,13 @@ html,body {
     background-size: cover;
     color: #eee;
     overflow: hidden;
+
+    .lead {
+      font-size: 2.5em;
+      padding-top: 250px;
+      color: white;
+      padding-bottom: 300px;
+    }
   }
 
   .container-full a {
@@ -34,14 +28,97 @@ html,body {
   .v-center {
     margin-top: 7%;
   }
+  .content-container {
+    padding-top: 100px;
+  }
 
+  #page-wrap {
+    margin: 15px auto;
+    position: relative;
+  }
+
+  #sidebar {
+    display: none;
+  }
+  
+  #sidebar.ui-scrollpoint {
+    position: fixed;
+    top: 100px;
+    transition: 0.3s;
+    margin-left:0px;
+    display: block;
+    opacity: 0.7;
+    font-size: 1.2em;
+  }
 
   .navbar-transparent {
     background-color: transparent;
     border: none ;
-    padding: 25px;
+    padding: 40px;
     transition: 0.3s;
-    min-height: 50px;
+    min-height: 80px;
+    .container {
+      min-height: 80px;
+      li {
+        padding-top: 16px;
+      }
+
+      a {
+
+        color: #ffffff;
+        font-weight: bold;
+      }
+      a:hover {
+        color: #75c0ff !important;
+      }
+      .navbar-brand {
+        font-size: 2em;
+        min-height: 80px;
+        transition: 0.3s;
+
+        width: 200px;
+        background-image: url('img/home/logo_white_300.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+  }
+
+  @padding-small: 20px;
+  @min-height-small: 30px;
+  .navbar-transparent.ui-scrollpoint {
+    background-color: #f3f8fb;
+    //border: none ;
+    padding: @padding-small;
+    transition: 0.3s;
+    min-height: @min-height-small;
+    .container {
+      min-height: @min-height-small;
+      li {
+        padding-top: 0px;
+      }
+
+      a {
+
+        color: #000;
+        font-weight: bold;
+      }
+      a:hover {
+        color: #75c0ff !important;
+      }
+      .navbar-brand {
+        font-size: 2em;
+        min-height: @min-height-small;
+        transition: 0.3s;
+
+        width: 200px;
+        background-image: url('img/home/logo_black_300.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
   }
 
 }

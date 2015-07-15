@@ -1,6 +1,8 @@
 angular.module( 'clozerrWeb.dashboard.home', [
   'ui.router',
-  'placeholders'
+  'placeholders',
+  'ui.scrollpoint',
+  'duScroll'
 ])
 
 .config(function config( $stateProvider ) {

@@ -72,7 +72,9 @@ module.exports = {
       'vendor/angular-loading-bar/build/loading-bar.js',
       'vendor/angular-ui-notification/dist/angular-ui-notification.min.js',
       'vendor/angular-ui-bootstrap-datetimepicker/datetimepicker.js',
-      'vendor/ng-file-upload/ng-file-upload-all.min.js'
+      'vendor/ng-file-upload/ng-file-upload-all.min.js',
+      'vendor/angular-ui-scrollpoint/dist/scrollpoint.js',
+      'vendor/angular-scroll/angular-scroll.min.js'
     ],
     css: [
       'vendor/angular-ui-notification/dist/angular-ui-notification.min.css',
