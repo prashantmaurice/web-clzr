@@ -68,11 +68,11 @@ angular.module( 'clozerrWeb.dashboard.profile', [
         $scope.appPolicy = {};
         api.vendor.upload(utils.token, '').then(function(data){
             $scope.appPolicy = data;
-            $scope.appLink = "http://clozerr.s3.amazonaws.com/" + data.key;
+            $scope.appLink = "https://clozerr.s3.amazonaws.com/" + data.key;
         });
         api.vendor.upload(utils.token, 'logo').then(function(data){
             $scope.iconPolicy = data;
-            $scope.iconLink = "http://clozerr.s3.amazonaws.com/" + data.key;
+            $scope.iconLink = "https://clozerr.s3.amazonaws.com/" + data.key;
         });
 
         $scope.upload = function (files, policy) {
@@ -145,7 +145,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                         var h = img.height;
                         console.log(w, h); // image is loaded; sizes are available
 
-                        if (h != 2*w) {
+                        if ( 2*h != w) {
                             $scope.app = [];
                             Notification.error("Image height must be twice the width, please try again.");
                         } else if (h == 2*w) {
