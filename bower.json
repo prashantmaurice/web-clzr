@@ -12,10 +12,11 @@
     "angular-ui-bootstrap-datetimepicker": "~0.11.2",
     "components-font-awesome": "~4.3.0",
     "angular-animate": "~1.4.1",
-    "angular-ui-notification": "~0.0.11"
+    "angular-ui-notification": "~0.0.11",
     "ng-file-upload": "~5.0.9",
     "angular-ui-scrollpoint": "~1.0.1",
-    "angular-scroll": "~0.7.1"
+    "angular-scroll": "~0.7.1",
+    "angular-snapscroll": "~0.2.4"
   },
   "resolutions": {
     "angular": "~1.4.1",

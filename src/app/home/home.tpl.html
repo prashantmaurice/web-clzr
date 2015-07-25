@@ -1,189 +1,137 @@
-<div class="home-page">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent" role="banner" ui-scrollpoint="+600">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand"></a>
+<div class="home-page" snapscroll fit-window-height snap-index="snapIndex" after-snap="afterSnap(snapIndex)">
+    <div class=" container-full" id="sec00">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-transparent" role="banner">
+            <div class="container nav-bar-container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand " ng-class="{'white': !snapIndex, 'black': snapIndex}"></a>
+                </div>
+                <nav class="collapse navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="btn  btn-flat" >THE APP</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-outline" >SIGN IN</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <nav class="collapse navbar-collapse" role="navigation">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="btn  btn-flat" >THE APP</a>
-                    </li>
-                    <li>
-                        <a class="btn btn-outline" >SIGN IN</a>
-                    </li>
-                </ul>
-            </nav>
+        </nav>
+
+        <p class="lead">
+            Connect with your customers<br/>
+            anytime  anywhere
+            <br/>
+            <a  ng-click="snapIndex=1" class="btn btn-flat btn-circle btn-outline btn-lg"><i class="fa fa-angle-double-down"></i> </a>
+        </p>
+
+    </div>
+
+    <div class="col-md-12 all-center" id="sec0" >
+        <div class="container-fluid">
+            <h2>Powerful mobile marketing platform</h2>
+            <div class="row all-center">
+                <div class="col-md-8 all-center">
+
+                    <p style="font-size: 1.3em;">Clozerr mobile loyalty platform makes it easy to communicate with customers and act accordingly.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/img/home/nexus.png">
+                </div>
+            </div>
         </div>
-    </nav>
 
-    <div class="container-full">
+    </div>
 
+    <div id="sec1">
+        <h2 >Content</h2>
+        <p>
+            Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
+        </p>
         <div class="row">
-
-            <div class="col-lg-12 text-center v-center">
-
-                <p class="lead">
-                    Connect with your customers<br/>
-                    anytime  anywhere
-                    <br/>
-                    <a href="#sec0" du-smooth-scroll du-scrollspy offset="100" class="btn btn-flat btn-circle btn-outline btn-lg"><i class="fa fa-angle-double-down"></i> </a>
-                </p>
-
-
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Hello.</h3></div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                    </div>
+                </div>
             </div>
-
-        </div> <!-- /row -->
-
-
-
-    </div> <!-- /container full -->
-
-    <div class="container contect-container">
-
-    <br/>
-
-        <div class="row " id="page-wrap">
-            <div class="col-md-3 hidden-sm hidden-xs" id="leftCol">
-                <ul class="nav nav-stacked " id="sidebar" ui-scrollpoint="700">
-                    <li du-smooth-scroll="sec0" du-scrollspy="sec0" offset="100"><a href="#sec0" >Loyalty card</a></li>
-                    <li du-smooth-scroll="sec1" du-scrollspy="sec1" offset="100"><a href="#sec1" >Beacon</a></li>
-                    <li du-smooth-scroll="sec2" du-scrollspy="sec2" offset="100"><a href="#sec2" >Auto push notifications</a></li>
-                    <li du-smooth-scroll="sec3" du-scrollspy="sec3" offset="100"><a href="#sec3" >Valuable feedbacks</a></li>
-                    <li du-smooth-scroll="sec4" du-scrollspy="sec4" offset="100"><a href="#sec4" >Useful analytics</a></li>
-                </ul>
-            </div><!--/left-->
-
-            <!--right-->
-            <div class="col-md-9">
-                <section id="sec0">
-                    <h2>Powerful mobile marketing platform</h2>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-
-                                <p style="font-size: 1.3em;">Clozerr mobile loyalty platform makes it easy to communicate with customers and act accordingly.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="assets/img/home/nexus.png">
-                            </div>
-                        </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Hello.</h3></div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
                     </div>
-
-                </section>
-
-                <section id="sec1">
-                    <h2 >Content</h2>
-                    <p>
-                        Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
-                    </p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><h3>Hello.</h3></div>
-                                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><h3>Hello.</h3></div>
-                                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-                </section>
-
-
-                <section id="sec2">
-                    <h2>Content</h2>
-                    <p>
-                        At Bootply we like to build simple Bootstrap templates that utilize the code Bootstap CSS without a lot of customization. Sure you can
-                        find a lot of Bootstrap themes and inspiration, but these templates tend to be heavy on customization.</p>
-
-                    <hr>
-                    <p>
-                        Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
-                        eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                        Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.
-                        Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
-                        eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                        Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!</p>
-                </section>
-
-                <section id="sec3">
-                    <h2 >Content</h2>
-                    <p>
-                        Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
-                    </p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><h3>Hello.</h3></div>
-                                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><h3>Hello.</h3></div>
-                                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-                </section>
-
-            </div><!--/right-->
-
+                </div>
+            </div>
         </div>
 
+        <hr>
+    </div>
+
+
+    <div id="sec2">
+        <h2>Content</h2>
+        <p>
+            At Bootply we like to build simple Bootstrap templates that utilize the code Bootstap CSS without a lot of customization. Sure you can
+            find a lot of Bootstrap themes and inspiration, but these templates tend to be heavy on customization.</p>
+
+        <hr>
+        <p>
+            Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+            eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.
+            Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+            eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!</p>
+    </div>
+
+    <div id="sec3">
+        <h2 >Content</h2>
+        <p>
+            Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
+        </p>
         <div class="row">
-            <div class="col-lg-12">
-                <br><br>
-                <p class="pull-right">&nbsp; ©Copyright 2015 clozerr.com<sup>TM</sup></p>
-                <br><br>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Hello.</h3></div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Hello.</h3></div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+                    </div>
+                </div>
             </div>
         </div>
+
+        <hr>
     </div>
 
 </div>

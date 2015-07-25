@@ -2,55 +2,37 @@
 
 
 .home-page {
-
+  .all-center {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+  }
   .container-full {
+    text-align: center;
     margin: 0 auto;
-    width: 100%;
+    min-width: 100%;
     min-height: 100%;
     background-image: url('img/home/header_bg.jpg');
     background-size: cover;
     color: #eee;
     overflow: hidden;
 
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+
     .lead {
       font-size: 2.5em;
-      padding-top: 250px;
       color: white;
-      padding-bottom: 300px;
     }
   }
+
 
   .container-full a {
     color: #efefef;
     text-decoration: none;
   }
 
-  .v-center {
-    margin-top: 7%;
-  }
-  .content-container {
-    padding-top: 100px;
-  }
-
-  #page-wrap {
-    margin: 15px auto;
-    position: relative;
-  }
-
-  #sidebar {
-    display: none;
-  }
-  
-  #sidebar.ui-scrollpoint {
-    position: fixed;
-    top: 100px;
-    transition: 0.3s;
-    margin-left:0px;
-    display: block;
-    opacity: 0.7;
-    font-size: 1.2em;
-
-  }
 
   .navbar-transparent {
     background-color: transparent;
@@ -78,48 +60,20 @@
         transition: 0.3s;
 
         width: 200px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .navbar-brand.white{
         background-image: url('img/home/logo_white_300.png');
-        background-size: contain;
-        background-repeat: no-repeat;
+        transition: 1s;
+
+      }
+      .navbar-brand.black {
+         background-image: url('img/home/logo_black_300.png');
+        transition: 1s;
       }
     }
-
   }
 
-  @padding-small: 20px;
-  @min-height-small: 30px;
-  .navbar-transparent.ui-scrollpoint {
-    background-color: #f3f8fb;
-    //border: none ;
-    padding: @padding-small;
-    transition: 0.3s;
-    min-height: @min-height-small;
-    .container {
-      min-height: @min-height-small;
-      li {
-        padding-top: 0px;
-      }
-
-      a {
-
-        color: #000;
-        font-weight: bold;
-      }
-      a:hover {
-        color: #75c0ff !important;
-      }
-      .navbar-brand {
-        font-size: 2em;
-        min-height: @min-height-small;
-        transition: 0.3s;
-
-        width: 200px;
-        background-image: url('img/home/logo_black_300.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-    }
-
-  }
 
 }
