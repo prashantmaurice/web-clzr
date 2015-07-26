@@ -18,6 +18,9 @@ angular.module( 'clozerrWeb.home', [
 })
 
 .controller( 'HomeCtrl', function HomeCtrl( $scope ) {
+        $scope.snapIndex = 0;
+        $scope.childSnapIndex = 0;
+
       $scope.$on('arrow-up', function () {
         $scope.$apply(function () {
           $scope.snapIndex--;
@@ -33,6 +36,8 @@ angular.module( 'clozerrWeb.home', [
         $scope.snapAnimation = true; // turn animations on after the initial snap
         console.log(snapIndex);
       };
+
+        //$scope.childSnapAnimation = false;
 })
 
 ;

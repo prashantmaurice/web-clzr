@@ -1,7 +1,15 @@
-
-
+@topbar-height: 80px;
 
 .home-page {
+  @font-face {
+    font-family: BrandonText;
+    src: url("fonts/Brandon/BrandonText-Regular.otf") format("opentype");
+  }
+  font-family: BrandonText !important;
+  h2{
+    font-family: BrandonText !important;
+
+  }
   .all-center {
     display: flex;
     justify-content: center; /* align horizontal */
@@ -39,9 +47,10 @@
     border: none ;
     padding: 40px;
     transition: 0.3s;
-    min-height: 80px;
+    min-height: @topbar-height;
+
     .container {
-      min-height: 80px;
+      min-height: @topbar-height;
       li {
         padding-top: 16px;
       }
@@ -56,7 +65,7 @@
       }
       .navbar-brand {
         font-size: 2em;
-        min-height: 80px;
+        min-height: @topbar-height;
         transition: 0.3s;
 
         width: 200px;
@@ -72,8 +81,21 @@
          background-image: url('img/home/logo_black_300.png');
         transition: 1s;
       }
+      .black-text {
+        color: #000 !important;
+        transition: 1s;
+        border: 1px solid #000 !important;
+      }
     }
   }
 
+  .padded-content {
+    padding-top: @topbar-height + 100px;
+  }
+
+  ul.nav.nav-stacked {
+    font-size: 1.2em;
+    border-left: 1px solid #3c8dbc;
+  }
 
 }
