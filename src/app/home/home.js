@@ -1,6 +1,7 @@
 
 angular.module( 'clozerrWeb.home', [
-  'ui.router'
+  'ui.router',
+  'snapscroll'
 ])
 
 .config(function config( $stateProvider ) {
@@ -16,8 +17,27 @@ angular.module( 'clozerrWeb.home', [
   });
 })
 
-.controller( 'HomeCtrl', function HomeCtrl( $scope, utils, $state, api, Notification, $localForage, $rootScope ) {
-        $scope.cred = "aaa";
+.controller( 'HomeCtrl', function HomeCtrl( $scope ) {
+        $scope.snapIndex = 0;
+        $scope.childSnapIndex = 0;
+
+      $scope.$on('arrow-up', function () {
+        $scope.$apply(function () {
+          $scope.snapIndex--;
+        });
+      });
+      $scope.$on('arrow-down', function () {
+        $scope.$apply(function () {
+          $scope.snapIndex++;
+        });
+      });
+
+      $scope.afterSnap = function (snapIndex) {
+        $scope.snapAnimation = true; // turn animations on after the initial snap
+        console.log(snapIndex);
+      };
+
+        //$scope.childSnapAnimation = false;
 })
 
 ;

@@ -149,8 +149,8 @@ angular.module( 'clozerrWeb.dashboard.profile', [
 
                         if ( 2*h != w) {
                             $scope.app = [];
-                            Notification.error("Image height must be twice the width, please try again.");
-                        } else if ( 2*h == w) {
+                            Notification.error("Image width must be twice the height, please try again.");
+                        } else if (2*h == w) {
                             Notification.success("Click Save to upload image.");
                         }
                     };

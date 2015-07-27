@@ -1,27 +1,22 @@
 {
   "name": "clozerrWeb",
-  "version": "0.3.5",
-  "devDependencies": {
-    "angular": "~1.2",
-    "angular-mocks": "~1.2",
-    "bootstrap": "^3.1",
-    "angular-bootstrap": "~0.10.0",
-    "angular-ui-router": "~0.2",
-    "angular-loading-bar": "~0.7.1",
-    "angular-localforage": "~1.2.2",
-    "angular-ui-notification": "~0.0.11"
-  },
+  "version": "0.3.6",
   "dependencies": {
     "angular": "~1.4.1",
     "angular-bootstrap": "~0.13.0",
+    "angular-ui-router": "~0.2",
+    "angular-localforage": "~1.2.2",
     "angular-loading-bar": "~0.8.0",
     "angular-mocks": "~1.4.1",
+    "bootstrap": "^3.1",
     "angular-ui-bootstrap-datetimepicker": "~0.11.2",
     "components-font-awesome": "~4.3.0",
     "angular-animate": "~1.4.1",
+    "angular-ui-notification": "~0.0.11",
     "ng-file-upload": "~5.0.9",
     "angular-ui-scrollpoint": "~1.0.1",
-    "angular-scroll": "~0.7.1"
+    "angular-scroll": "~0.7.1",
+    "angular-snapscroll": "~0.2.4"
   },
   "resolutions": {
     "angular": "~1.4.1",
