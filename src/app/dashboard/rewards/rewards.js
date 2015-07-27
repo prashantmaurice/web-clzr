@@ -21,12 +21,12 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
 .controller( 'DashboardRewardsCtrl', function DashboardRewardsCtrl( $scope, api, utils, Notification ) {
   // This is simple a demo for UI Boostrap. 
   $scope.rewards = {
-    welcome : {
+    welcomeReward : {
       type: "S0",
       caption: "Welcome Reward",
       description: "",
       params: {
-        type: "welcome",
+        type: "welcomeReward",
         expiry: ""
       }
     },
@@ -123,7 +123,7 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
 
   $scope.saveReward = function (reward) {
     processDays();
-
+	console.log( reward );
     if (reward._id) {
       //Edit reward
       var id = reward._id;

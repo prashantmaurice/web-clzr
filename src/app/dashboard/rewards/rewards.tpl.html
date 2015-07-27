@@ -27,35 +27,35 @@
 		  <label class="col-md-3 control-label">Reward expires in</label>
 		  <div class="col-md-9">
 			  <div class="radio radio-inline radio-info">
-				  <input type="radio" ng-model="rewards.welcome.params.expiry" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-00" value="no" checked="checked">
+				  <input type="radio" ng-model="rewards.welcomeReward.params.expiry" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-00" value="no" checked="checked">
 				  <label for="welcomeRewardOfferExpiry-00">
 					  No expiry
 				  </label>
 			  </div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" ng-model="rewards.welcome.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-0" value="hour">
+		      	<input type="radio" ng-model="rewards.welcomeReward.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-0" value="hour">
 			  	<label for="welcomeRewardOfferExpiry-0">
 			      1 Hour
 			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" ng-model="rewards.welcome.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-1" value="day" >
+		      	<input type="radio" ng-model="rewards.welcomeReward.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-1" value="day" >
 			  	<label for="welcomeRewardOfferExpiry-1">
 			      1 Day
 			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio"  ng-model="rewards.welcome.params.expiry" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-2" value="month" >
+		      	<input type="radio"  ng-model="rewards.welcomeReward.params.expiry" name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-2" value="month" >
 			  	<label for="welcomeRewardOfferExpiry-2">
 			      1 Month
 			    </label>
 		  	</div>
 
 		  	<div class="radio radio-inline radio-info">
-		      	<input type="radio" ng-model="rewards.welcome.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-3" value="year" >
+		      	<input type="radio" ng-model="rewards.welcomeReward.params.expiry"  name="welcomeRewardOfferExpiry" id="welcomeRewardOfferExpiry-3" value="year" >
 			  	<label for="welcomeRewardOfferExpiry-3">
 			      1 Year
 			    </label>
@@ -69,7 +69,7 @@
 		<div class="form-group">
 		  <label class="col-md-3 control-label" for="welcomeRewardOfferText">Customers will get</label>
 		  <div class="col-md-9">
-		    <textarea class="form-control" ng-model="rewards.welcome.description" rows="3" id="welcomeRewardOfferText" name="welcomeRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
+		    <textarea class="form-control" ng-model="rewards.welcomeReward.description" rows="3" id="welcomeRewardOfferText" name="welcomeRewardOfferText" placeholder="Enter your reward description here... (eg. One free coffee)"></textarea>
 		  </div>
 		</div>
 
@@ -78,7 +78,7 @@
 	</div>
 	<div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
-	    <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.welcome)">Save</button>
+	    <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.welcomeReward)">Save</button>
 	  </div><!-- /.box-footer -->
 </div>
 <!--/ Welcome Reward form -->

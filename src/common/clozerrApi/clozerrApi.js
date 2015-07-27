@@ -115,7 +115,8 @@ angular.module('clozerrWeb.api', [])
              * @returns {offer}
              */
             create: function (access_token, offer){
-                return $http.get(urlBase + 'offer/create', {
+				
+				return $http.get(urlBase + 'offer/create', {
                     params: {
                         access_token: access_token,
                         caption: offer.caption,
@@ -123,7 +124,9 @@ angular.module('clozerrWeb.api', [])
                         stamps: offer.stamps || "",
                         type: offer.type,
                         params: offer.params
-                    }
+                    },
+                    paramSerializer: '$httpParamSerializerJQLike'
+					
                 }).then(function(resp){
                     if(resp.data.result){
                         return resp.data.data;
@@ -148,8 +151,8 @@ angular.module('clozerrWeb.api', [])
                         offer_id: offer_id,
                         access_token: access_token,
                         offer: offer
-                    },
-                    paramSerializer: '$httpParamSerializerJQLike'
+                    }
+                    //paramSerializer: '$httpParamSerializerJQLike'
                 }).then(function(resp){
                     return resp.data;
                 }, function(error){
@@ -235,13 +238,13 @@ angular.module('clozerrWeb.api', [])
              * @returns {*}
              */
             edit: function (access_token, vendor_id, vendor) {
-                return $http.get(urlBase + 'v2/vendor/details/set', {
+                return $http.get(urlBase + 'v2/vendor/details/patch', {
                     params: {
                         vendor_id: vendor_id,
                         access_token: access_token,
-                        vendor: vendor
-                    },
-                    paramSerializer: '$httpParamSerializerJQLike'
+                        data: JSON.stringify( vendor )
+                    }
+                    //paramSerializer: '$httpParamSerializerJQLike'
                 }).then(function(resp){
                     return resp.data;
                 }, function(error){

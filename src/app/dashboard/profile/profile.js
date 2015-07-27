@@ -32,10 +32,12 @@ angular.module( 'clozerrWeb.dashboard.profile', [
       $scope.data = {
         image: '',
         location: [],
-        locationString: '',
+        address: '',
         name: '',
         phone: '',
-        category: ''
+        category: '',
+	//settings:{policy:''},
+	beacons:{major:0, minor:0}
       };
 
         function loadData (input, output) {
@@ -148,7 +150,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                         if ( 2*h != w) {
                             $scope.app = [];
                             Notification.error("Image height must be twice the width, please try again.");
-                        } else if (h == 2*w) {
+                        } else if ( 2*h == w) {
                             Notification.success("Click Save to upload image.");
                         }
                     };
