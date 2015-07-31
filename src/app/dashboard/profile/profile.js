@@ -2,9 +2,7 @@
 angular.module( 'clozerrWeb.dashboard.profile', [
   'ui.router',
     'ngFileUpload'
-])
-
-.config(function config( $stateProvider ) {
+]).config(function config( $stateProvider ) {
   $stateProvider.state( 'dashboard.profile', {
     url: '/profile',
     views: {
@@ -15,9 +13,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
     },
     data:{ pageTitle: 'Profile' }
   });
-})
-
-.controller( 'DashboardProfileCtrl', function DashboardProfileCtrl( $scope, api, utils, Notification, Upload, $timeout ) {
+}).controller( 'DashboardProfileCtrl', function DashboardProfileCtrl( $scope, api, utils, Notification, Upload, $timeout ) {
 
       /**
        * image str
@@ -36,8 +32,10 @@ angular.module( 'clozerrWeb.dashboard.profile', [
         name: '',
         phone: '',
         category: '',
-	//settings:{policy:''},
-	beacons:{major:0, minor:0}
+		settings:{policy:'',viewState:{placeholder:'',active:true}},
+		beacons:{major:0, minor:0},
+		description: '',
+		qrcodes:[]
       };
 
         function loadData (input, output) {
@@ -77,6 +75,15 @@ angular.module( 'clozerrWeb.dashboard.profile', [
             $scope.iconLink = "https://clozerr.s3.amazonaws.com/" + data.key;
         });
 
+
+		$scope.addCode = function(){
+			$scope.data.qrcodes.push("");
+		};
+
+		$scope.removeCode = function( code ){
+			$scope.data.qrcodes.splice( $scope.data.qrcodes.indexOf(code), 1 );
+		};
+
         $scope.upload = function (files, policy) {
             if (files && files.length) {
 
@@ -96,13 +103,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                         file: file
                     }).progress(function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total, 10);
-                        console.log('progress: ' + progressPercentage + '% ' +
-                            evt.config.file.name + '\n');
-                    }).success(function (data, status, headers, config) {
-                        $timeout(function() {
-                            Notification.success("Image uploaded");
-                            console.log('file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n');
-                        });
+                        console.log('progress: ' + progressPercentage + '% ');
                     }).error(function(error){
                         console.log(error);
                         Notification.error("Upload failed. Please try again.");
@@ -162,7 +163,5 @@ angular.module( 'clozerrWeb.dashboard.profile', [
             }
 
         });
-})
-
-;
+});
 

@@ -124,8 +124,8 @@ angular.module('clozerrWeb.api', [])
                         stamps: offer.stamps || "",
                         type: offer.type,
                         params: offer.params
-                    },
-                    paramSerializer: '$httpParamSerializerJQLike'
+                    }
+                    //paramSerializer: '$httpParamSerializerJQLike'
 					
                 }).then(function(resp){
                     if(resp.data.result){
@@ -151,8 +151,8 @@ angular.module('clozerrWeb.api', [])
                         offer_id: offer_id,
                         access_token: access_token,
                         offer: offer
-                    }
-                    //paramSerializer: '$httpParamSerializerJQLike'
+                    },
+                    paramSerializer: '$httpParamSerializerJQLike'
                 }).then(function(resp){
                     return resp.data;
                 }, function(error){
