@@ -90,6 +90,32 @@
             </div>
         </div>
     </div>
+    <div class="col-md-6 col-sm-12 col equal">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">About</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left ">
+                <form role="form">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label class=" control-label" for="businessName">Description</label>
+                            <div >
+                                <textarea ng-model="data.description" id="businessName" name="businessName" type="text" placeholder="Business name" class="form-control input-md" required="">
+								</textarea>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="row">
@@ -155,6 +181,70 @@
                                 <input ng-model="data.beacons.message" id="beaconsMessage" name="beaconsMessage" type='text' placeholder='Notification Text' class="form-control input-md" required='' />
                             </div>
                         </div>
+                    </fieldset>
+                </form>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 col-sm-12 col equal">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">QR Codes</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left ">
+                <form role="form">
+                    <fieldset>
+
+                        <label class=" control-label" for="businessName">Codes</label>
+                        <div class="form-group" ng-repeat="qrcode in data.qrcodes">
+                            <div class="col-md-10">
+                                <input ng-model="data.qrcodes[$index]" type="text" placeholder="Business name" class="form-control input-md" required="">
+                            </div>
+							<div class="col-md-2" ng-click="removeCode( qrcode )">
+								X
+							</div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button ng-click="addCode()" ng-autodisable type="submit" class="btn btn-info pull-left" >Add</button>
+                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col equal">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">View State</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left ">
+                <form role="form">
+                    <fieldset>
+
+                        <label class=" control-label" for="viewActive">Active</label>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input  style="-webkit-appearance:checkbox"  type="checkbox" ng-model="data.settings.viewState.active" class="form-control">
+                            </div>
+                        </div>
+                        <label class=" control-label" for="viewPlaceholder">Caption when Inactive</label>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input ng-model="data.settings.viewState.placeholder" type="text" name="viewPlaceholder" placeholder="Text to show when inactive" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
