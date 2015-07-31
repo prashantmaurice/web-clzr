@@ -1,0 +1,79 @@
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li ui-sref-active="active" class="sidebar-brand sidebar-brand-large">
+                <img class="brand-logo" src="assets/img/logo_300.png">
+            </li>
+            <li ui-sref-active="active" class="sidebar-brand-small">
+                <img class="img-responsive" src="assets/img/icons/apple-touch-icon-precomposed.png">
+            </li>
+            <li ui-sref-active="active"><a ui-sref="admin.events"><i class="d fa fa-user-secret"></i><span>Event Feed</span></a></li>
+        </ul>
+    </div>
+    <!-- Page content -->
+    <!-- <div id="page-content-wrapper" ui-view="dashboard-main" class="container-fluid anim-in-out anim-fade" data-anim-speed="500" data-anim-sync="true"></div> -->
+
+    <div class="dashboard-heading">
+        <div class="right-padded">
+          
+            <ul class="nav navbar-nav nav-pills pull-right">
+                <li class="dropdown notifications-menu">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="label label-warning">10</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">You have 10 notifications</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <a >
+                                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a >
+                                        <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                                    </a>
+                                </li>
+                                <li>
+                                    <a >
+                                        <i class="fa fa-users text-red"></i> 5 new members joined
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a >
+                                        <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                                    </a>
+                                </li>
+                                <li>
+                                    <a >
+                                        <i class="fa fa-user text-light-blue"></i> You changed your username
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a >View all</a></li>
+                    </ul>
+                </li>
+                <li ng-click="logOut()">
+                    <a class="btn btn-default btn-sm" >
+                        <i class="fa fa-sign-out"></i> Logout
+                    </a>
+                </li>
+            </ul>
+          
+          <h1 ng-bind="adminPageHeading">Dashboard</h1>
+          
+        </div>
+    </div>
+    <hr/>
+
+    <div id="page-content-wrapper"  class="container-fluid">
+        <div ui-view="admin-main"></div>
+    </div>
+</div>

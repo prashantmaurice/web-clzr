@@ -1,0 +1,280 @@
+@sidebarwidth : 300px;
+@sidebar-tablet-width : 60px;
+@sidebar-mobile-width : 40px;
+@logoheight : 65px;
+
+#wrapper {
+  padding-left: @sidebarwidth;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -@sidebarwidth;
+  margin-top: 50px;
+  left: @sidebarwidth;
+  width: @sidebarwidth;
+  font-size: large;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: @sidebarwidth;
+  list-style: none;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+ul.sidebar-nav > li:not(.sidebar-brand){
+    padding-top: 15px;
+
+}
+
+ul.sidebar-nav > li.first-one {
+    padding-top: 30px;
+}
+
+i.fa.d {
+    padding-right: 15px;
+}
+
+.sidebar-nav li a {
+    color: black;
+    opacity: 0.5;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-nav li a:hover {
+    color: #000;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: @logoheight;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand-small {
+  display: none;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #000;
+  background: none;
+}
+
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.inset {
+  padding: 20px;
+}
+
+// For Tablets
+@media (max-width:1025px) {
+
+    #sidebar-wrapper .sidebar-nav span {
+        display:none;
+    }
+
+    #wrapper {
+      padding-left: @sidebar-tablet-width + 30px;
+    }
+    
+    #sidebar-wrapper {
+      left: @sidebar-tablet-width;
+     
+    }
+    
+  #sidebar-wrapper {
+    margin-left: -@sidebar-tablet-width;
+    left: @sidebar-tablet-width;
+    width: @sidebar-tablet-width;
+    padding-left: 20px; 
+  }
+
+  .sidebar-nav {
+
+    width: @sidebar-tablet-width;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .sidebar-nav li {
+    text-indent: 0px;
+    font-size: 28px;
+  }
+
+  .sidebar-nav > .sidebar-brand-large {
+    display: none;
+  }
+  .sidebar-nav > .sidebar-brand-small {
+    display: block;
+    padding-right: 20px;
+  }
+
+}
+
+// For mobile devices
+@media (max-width:600px) {
+
+  #sidebar-wrapper .sidebar-nav span {
+    display:none;
+  }
+
+  #wrapper {
+    padding-left: @sidebar-mobile-width + 10px;
+  }
+
+  #sidebar-wrapper {
+    left: @sidebar-mobile-width;
+
+  }
+
+  #sidebar-wrapper {
+    margin-left: -@sidebar-mobile-width ;
+    left: @sidebar-mobile-width;
+    width: @sidebar-mobile-width;
+    padding-left: @sidebar-mobile-width / 4;
+  }
+
+  .sidebar-nav {
+
+    width: @sidebar-mobile-width;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .sidebar-nav li {
+    text-indent: 0px;
+    font-size: 28px;
+  }
+
+  .sidebar-nav > .sidebar-brand-large {
+    display: none;
+  }
+  .sidebar-nav > .sidebar-brand-small {
+    display: block;
+    padding-right: 20px;
+  }
+
+}
+
+
+.brand-logo {
+    max-height: @logoheight;
+}
+
+img.brand-logo {
+    padding-left: 20px;
+}
+
+.dashboard-heading {
+  padding-top: 40px;
+}
+
+.gen-alert-box {
+  @header-color: #01a2e2;
+
+  min-height: 100px;
+  .logo {
+    font-size: 4.5em;
+    padding-left: 20px;
+    color: @header-color;
+  }
+  .content-header
+  {
+    font-size: 2em;
+    color: @header-color;
+  }
+  .content-body {
+    opacity: 0.7;
+  }
+}
+
+.middle-parent {
+  display: table;
+}
+
+.middle-child {
+  display: table-cell;
+    vertical-align: middle;
+}
+
+.vcenter {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.callout-center-text, .align-center {
+  text-align: center;
+}
+
+.callout.callout-info {
+    background-color: #01354a !important;
+    border-left-width: 0px;
+}
+
+ul.sidebar-nav > li.active > a {
+  color: #000;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.right-padded{
+  padding-right: 15px;
+}
+
+span.text-muted {
+  font-size: small;
+}
