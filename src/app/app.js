@@ -4,6 +4,7 @@ angular.module( 'clozerrWeb', [
   'LocalForageModule',
   'clozerrWeb.about',
   'clozerrWeb.dashboard',
+  'clozerrWeb.admin',
   'clozerrWeb.home',
   'clozerrWeb.login',
   'clozerrWeb.logout',

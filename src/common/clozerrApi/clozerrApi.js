@@ -310,6 +310,24 @@ angular.module('clozerrWeb.api', [])
         };
 
 
-
+        api.events = {
+            /**
+             * Get event by ID. Usually in response to a broadcast.
+             * @param vendor_id
+             * @returns {offers}, err: {Promise}
+             */
+            getByID: function ( analytics_id ){
+                return $http.get(urlBase + 'v2/analytics/get', {
+                    params: {
+                        access_token: access_token,
+                        analytics_id: analytics_id
+                    }
+                }).then(function(resp){
+                    return resp;
+                }, function(error){
+                    return $q.reject(error);
+                });
+            }
+        };
         return api;
 });

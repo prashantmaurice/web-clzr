@@ -25,6 +25,7 @@ angular.module( 'clozerrWeb.login', [
             // Call the login api
 
             utils.login(cred.username, cred.password).then(function(result){
+                //$state.go('admin.events');
                 $state.go('dashboard.home');
             });
 
