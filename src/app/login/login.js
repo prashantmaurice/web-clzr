@@ -25,8 +25,10 @@ angular.module( 'clozerrWeb.login', [
             // Call the login api
 
             utils.login(cred.username, cred.password).then(function(result){
-                //$state.go('admin.events');
-                $state.go('dashboard.home');
+                if( result.user && result.user.type == "Admin" )
+                    $state.go('admin.events');
+                else    
+                    $state.go('dashboard.home');
             });
 
 
