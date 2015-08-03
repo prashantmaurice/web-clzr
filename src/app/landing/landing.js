@@ -1,23 +1,23 @@
-/**
-angular.module( 'clozerrWeb.home', [
+
+angular.module( 'clozerrWeb.landing', [
   'ui.router',
   'snapscroll'
 ])
 
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'home', {
+  $stateProvider.state( 'landing', {
     url: '/',
     views: {
       "main": {
-        controller: 'HomeCtrl',
-        templateUrl: 'home/home.tpl.html'
+        controller: 'LandingCtrl',
+        templateUrl: 'landing/landing.tpl.html'
       }
     },
-    data:{ pageTitle: 'Home' }
+    data:{ pageTitle: 'Rewarding you at places you love! ' }
   });
 })
 
-.controller( 'HomeCtrl', function HomeCtrl( $scope ) {
+.controller( 'LandingCtrl', function LandingCtrl( $scope ) {
         $scope.snapIndex = 0;
         $scope.childSnapIndex = 0;
 
@@ -37,8 +37,7 @@ angular.module( 'clozerrWeb.home', [
         console.log(snapIndex);
       };
 
-        //$scope.childSnapAnimation = false;
 })
 
 ;
-**/
+
