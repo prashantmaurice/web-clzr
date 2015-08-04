@@ -22,6 +22,7 @@ angular.module( 'clozerrWeb.admin', [
 })
 
 .controller( 'AdminCtrl', function AdminCtrl( $scope , utils) {
+	console.log("AdminCtrl");
       $scope.logOut = function() {
           utils.logout();
       };

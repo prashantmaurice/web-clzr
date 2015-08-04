@@ -316,7 +316,7 @@ angular.module('clozerrWeb.api', [])
              * @param vendor_id
              * @returns {offers}, err: {Promise}
              */
-            getByID: function ( analytics_id ){
+            getByID: function ( access_token, analytics_id ){
                 return $http.get(urlBase + 'v2/analytics/get', {
                     params: {
                         access_token: access_token,

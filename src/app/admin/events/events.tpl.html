@@ -4,8 +4,8 @@
 		<div class="info-box">
 			<span class="info-box-icon bg-aqua"><i class="fa fa-user-secret"></i></span>
 			<div class="info-box-content">
-				<span class="info-box-number">Your club members !</span>
-				<span class="info-box-text">See who all visited your business</span>
+				<span class="info-box-number">Analytics Control Panel</span>
+				<span class="info-box-text">Live stream URL hits.( Filters &amp; Maps coming soon )</span>
 			</div><!-- /.info-box-content -->
 		</div>
 	</div>
@@ -14,8 +14,8 @@
 <!--Birthday special-->
 <div class="box box-info " >
 	<div class="box-header with-border" >
-		<i class="d fa fa-user heading-text"></i><div class="box-title heading-text">YOUR CUSTOMERS</div>
-		<br/><span>View analytics and see how your business is attacting customers</span>
+		<i class="d fa fa-user heading-text"></i><div class="box-title heading-text">Live feed.</div>
+		<br/><span>Live analytics feed.</span>
 		<!--<div class="box-tools pull-right">-->
 
 		<!--</div>-->
@@ -24,21 +24,16 @@
 		<div class="box-body table-responsive body-align-left">
 			<table class="table table-hover">
 				<tbody><tr>
-					<th>Name</th>
-					<th>Date</th>
-					<th>Check-ins</th>
-					<th>Last visit</th>
+					<th>Gist</th>
+					<th>Extra-Gist</th>
+					<th>Metric</th>
+					<th>Timestamp</th>
 				</tr>
-				<tr ng-repeat="user in users">
-					<td >
-						<span aria-hidden="true">
-							<img ng-src="{{user.pic || 'http://www.gravatar.com/avatar/?d=mm'}}" class="circular" >
-						</span>
-						<span ng-bind="user.profile.name">  John Doe</span>
-					</td>
-					<td>11-7-2014</td>
-					<td ng-bind="$index+20">10</td>
-					<td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+				<tr ng-repeat="event in events">
+					<td ng-bind="event.caption"></td>
+					<td ng-bind="event.description"></td>
+					<td ng-bind="event.raw.metric"></td>
+					<td ng-bind="event.raw.timestamp"></td>
 				</tr>
 
 				</tbody></table>

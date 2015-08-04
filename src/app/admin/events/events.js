@@ -8,7 +8,7 @@ angular.module( 'clozerrWeb.admin.events', [
   $stateProvider.state( 'admin.events', {
     url: '/events',
     views: {
-      "admin-events": {
+      "admin-main": {
         controller: 'AdminEventsCtrl',
         templateUrl: 'admin/events/events.tpl.html'
       }
@@ -18,18 +18,29 @@ angular.module( 'clozerrWeb.admin.events', [
 })
 
 .controller( 'AdminEventsCtrl', function AdminEventsCtrl( $scope, api, utils ) {
+	console.log('Admin events controller');
     $scope.events = [];
+	$scope.startListen = function(){
+	
+			console.log("Setting events listener");    
+			var socket = io.connect('http://api.clozerr.com');
+			socket.on('analytics',function(signal) {
+				console.log( "Event received: " + signal );
+				var analytics = JSON.parse(signal);
+				$scope.update( analytics.event_id );
+			});
+	};
+	/*$scope.$on('$viewContentLoaded', function() {
+		console.log("on view context loaded.");
+		$scope.startListen();
+	});*/
 
-    
-    var socket = io();
-    socket.on('analytics',function(signal) {
-        console.log( "Event received: " + signal );
-        var analytics = JSON.parse(signal);
-        $scope.update( analytics.event_id );
-    });
-
+	$scope.$on('$stateChangeSuccess', function() {
+		console.log("on state changed..");
+		$scope.startListen();
+	});
     $scope.update = function( analytics_id ){
-        api.events.get( access_token, analytics_id ).then(function(data){
+        api.events.getByID( utils.token, analytics_id ).then(function(data){
             /*angular.forEach(data, function(obj){
                 if (obj.auth_type == 'facebook'){
                     obj.pic = "https://graph.facebook.com/" + obj.social_id + "/picture?type=small";
@@ -38,10 +49,12 @@ angular.module( 'clozerrWeb.admin.events', [
                 }
             });*/
 
-            $scope.events.push( data );
+			console.log( data );
+            $scope.events.push( data.data );
 
         });
     };
+	$scope.startListen();
 })
 
 ;
