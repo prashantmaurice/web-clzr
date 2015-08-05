@@ -1,6 +1,9 @@
 .full-height {
     height: 100%;
 }
+.play-image{
+    width:200px;
+}
 .landing-page {
     font-family: BrandonText !important;
 }
@@ -10,6 +13,16 @@
 }
 .landing-page h2 {
     font-family: BrandonText !important;
+}
+.all-center-parent{
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+.all-center-child{
+    display: table-cell;
+    vertical-align: middle;
 }
 .landing-page .all-center {
     display: flex;
