@@ -1,10 +1,9 @@
-/**
-@topbar-height: 80px;
+@topbar-height: 50px;
 
 .home-page {
   @font-face {
     font-family: BrandonText;
-    src: url("fonts/Brandon/BrandonText-Regular.otf") format("opentype");
+    src: url("fonts/Brandon/BrandonText-Medium.otf") format("opentype");
   }
   font-family: BrandonText !important;
   h2{
@@ -13,27 +12,29 @@
   }
   .all-center {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
   }
   .container-full {
     text-align: center;
     margin: 0 auto;
     min-width: 100%;
     min-height: 100%;
-    background-image: url('img/home/header_bg.jpg');
+    background-image: url('img/landing/bg.jpg');
     background-size: cover;
-    color: #eee;
+    color: #000;
     overflow: hidden;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
 
     .lead {
-      font-size: 2.5em;
-      color: white;
+      font-size: 2.6em;
+      color: #000;
     }
+
+
   }
 
 
@@ -46,21 +47,13 @@
   .navbar-transparent {
     background-color: transparent;
     border: none ;
-    padding: 40px;
+    padding: 20px;
     transition: 0.3s;
     min-height: @topbar-height;
 
     .container {
       min-height: @topbar-height;
-      li {
-        padding-top: 16px;
-      }
 
-      a {
-
-        color: #ffffff;
-        font-weight: bold;
-      }
       a:hover {
         color: #75c0ff !important;
       }
@@ -90,14 +83,4 @@
     }
   }
 
-  .padded-content {
-    padding-top: @topbar-height + 100px;
-  }
-
-  ul.nav.nav-stacked {
-    font-size: 1.2em;
-    border-left: 1px solid #3c8dbc;
-  }
-
 }
-**/

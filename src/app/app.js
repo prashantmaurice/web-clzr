@@ -5,7 +5,7 @@ angular.module( 'clozerrWeb', [
   'clozerrWeb.about',
   'clozerrWeb.dashboard',
   'clozerrWeb.admin',
-  'clozerrWeb.home',
+  'clozerrWeb.landing',
   'clozerrWeb.login',
   'clozerrWeb.logout',
   'clozerrWeb.api',

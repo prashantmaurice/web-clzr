@@ -1,0 +1,99 @@
+.full-height {
+    height: 100%;
+}
+.play-image{
+    width:200px;
+}
+.landing-page {
+    font-family: BrandonText !important;
+}
+@font-face {
+    font-family: BrandonText;
+    src: url("../fonts/BrandonText-Medium.otf") format("opentype");
+}
+.landing-page h2 {
+    font-family: BrandonText !important;
+}
+.all-center-parent{
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+.all-center-child{
+    display: table-cell;
+    vertical-align: middle;
+}
+.landing-page .all-center {
+    display: flex;
+    justify-content: center;
+    /* align horizontal */
+    align-items: center;
+    /* align vertical */
+}
+.landing-page .container-full {
+    text-align: center;
+    margin: 0 auto;
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url('../img/landing/bg.jpg');
+    background-size: cover;
+    color: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    /* align horizontal */
+    align-items: center;
+    /* align vertical */
+}
+.landing-page .container-full .lead {
+    font-size: 2.6em;
+    color: #000;
+}
+.landing-page .container-full a {
+    color: #efefef;
+    text-decoration: none;
+}
+.landing-page .navbar-transparent {
+    background-color: transparent;
+    border: none ;
+    padding: 20px;
+    transition: 0.3s;
+    min-height: 50px;
+}
+.landing-page .navbar-transparent .container {
+    min-height: 50px;
+}
+.landing-page .navbar-transparent .container a:hover {
+    color: #75c0ff !important;
+}
+.landing-page .navbar-transparent .container .navbar-brand {
+    font-size: 2em;
+    min-height: 50px;
+    transition: 0.3s;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.landing-page .navbar-transparent .container .navbar-brand a {
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.landing-page .navbar-transparent .container .navbar-brand a:hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+.landing-page .navbar-transparent .container .navbar-brand .food, .beer, .sleep, .javascript {
+    font-weight: bold;
+}
+.landing-page .navbar-transparent .container .navbar-brand.black {
+    background-image: url('../img/logo_black_300.png');
+    transition: 1s;
+}
+.landing-page .navbar-transparent .container .black-text {
+    color: #000 !important;
+    transition: 1s;
+    border: 1px solid #000 !important;
+}
