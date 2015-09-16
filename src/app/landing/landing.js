@@ -6,7 +6,7 @@ angular.module( 'clozerrWeb.landing', [
 
 .config(function config( $stateProvider ) {
   $stateProvider.state( 'landing', {
-    url: '/',
+    url: '/landing',
     views: {
       "main": {
         controller: 'LandingCtrl',
