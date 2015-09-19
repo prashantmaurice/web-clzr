@@ -17,7 +17,7 @@
                 <h3 class="box-title">Your Logo</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <img class="img-responsive" ngf-src="icon[0]" ng-src="{{iconLink}}" ngf-default-src="assets/img/icons/apple-touch-icon-precomposed.png" ngf-accept="'image/*'">
+                <img class="img-responsive" ngf-src="icon" ng-src="{{iconLink}}" ngf-default-src="assets/img/icons/apple-touch-icon-precomposed.png" ngf-accept="'image/*'">
 
             </div><!-- /.box-body -->
             <div class="box-footer">
@@ -125,7 +125,7 @@
                 <h3 class="box-title">App Image</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <img class="img-responsive" ngf-src="app[0]" ng-src="{{appLink}}" ngf-default-src="assets/img/logo_300.png" ngf-accept="'image/*'">
+                <img class="img-responsive" ngf-src="app" ng-src="{{appLink}}" ngf-default-src="assets/img/logo_300.png" ngf-accept="'image/*'">
 
 
             </div><!-- /.box-body -->
@@ -145,7 +145,7 @@
                         <div class="form-group">
                             <label class=" control-label" for="beaconsMajor">Major</label>
                             <div >
-                                <input ng-model="data.beacons.major" id="beaconsMajor" name="beaconsMajor" type="text" placeholder="Beacons - Major" class="form-control input-md" required="">
+                                <input ng-model="data.beacons.major" id="beaconsMajor" name="beaconsMajor" type="number" placeholder="Beacons - Major" class="form-control input-md" required="">
 
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                                     <!--<option value="1">Cat1</option>-->
                                     <!--<option value="2">Cat2</option>-->
                                 <!--</select>-->
-                                <input ng-model="data.beacons.minor" id="beaconsMinor" name="beaconsMinor" type='text' placeholder='Beacons - Minor' class="form-control input-md" required='' />
+                                <input ng-model="data.beacons.minor" id="beaconsMinor" name="beaconsMinor" type='number' placeholder='Beacons - Minor' class="form-control input-md" required='' />
                             </div>
                         </div>
 
@@ -242,6 +242,65 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <input ng-model="data.settings.viewState.placeholder" type="text" name="viewPlaceholder" placeholder="Text to show when inactive" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-6 col-sm-12 col equal">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Stamps Reset Policy</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left ">
+                <form role="form">
+                    <fieldset>
+
+                        <label class=" control-label" for="viewActive">Enable Reset</label>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input  style="-webkit-appearance:checkbox"  type="checkbox" ng-model="data.settings.stampsReset.active" class="form-control">
+                            </div>
+                        </div>
+                        <label class=" control-label" for="viewPlaceholder">Number of Stamps at which to Reset:</label>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input ng-model="data.settings.stampsReset.totalStamps" type="number" name="viewPlaceholder" placeholder="0" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col equal">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Checkin Settings</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body body-align-left ">
+                <form role="form">
+                    <fieldset>
+
+                        <label class=" control-label" for="viewActive">Checkin Expiry( Time before auto cancellation )</label>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="number" ng-model="data.settings.checkins.expiry" expiry-formatter class="form-control input-md">
                             </div>
                         </div>
 

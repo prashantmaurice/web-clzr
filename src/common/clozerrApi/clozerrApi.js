@@ -289,6 +289,24 @@ angular.module('clozerrWeb.api', [])
                 });
             },
             /**
+             * Fetch all feedback about a vendor
+             * @param access_token
+             * @param vendor_id
+             * @returns {*}
+             */
+             feedback: function (access_token, vendor_id) {
+                return $http.get(urlBase + 'v2/feedback/list/all', {
+                    params: {
+                        access_token: access_token
+                    }
+                }).then(function (resp){
+                    return resp.data;
+                }, function (error) {
+                    console.log(error);
+                    return $q.reject('Server unreachable. Please try again!');
+                });
+            },
+            /**
              * S3 Upload parameters
              * @param access_token
              * @param ext
@@ -328,6 +346,83 @@ angular.module('clozerrWeb.api', [])
                     return $q.reject(error);
                 });
             }
+        };
+
+        api.reports = {
+
+            /**
+             * Get event by ID. Usually in response to a broadcast.
+             * @param vendor_id
+             * @returns {offers}, err: {Promise}
+             */
+            get: function ( access_token ){
+                return $http.get(urlBase + 'v2/analytics/admin', {
+                    params: {
+                        access_token: access_token
+                    }
+                }).then(function(resp){
+                    return resp;
+                }, function(error){
+                    return $q.reject(error);
+                });
+            }
+        };
+
+        api.geofencing = {
+
+            /**
+             * Get event by ID. Usually in response to a broadcast.
+             * @param vendor_id
+             * @returns {offers}, err: {Promise}
+             */
+            get: function ( access_token, latitude, longitude ){
+                return $http.get(urlBase + 'v2/geofence/list/near', {
+                    params: {
+                        access_token: access_token,
+			latitude: latitude,
+			longitude: longitude
+                    }
+                }).then(function(resp){
+                    return resp;
+                }, function(error){
+                    return $q.reject(error);
+                });
+            }
+        };
+
+        api.vendors = {
+
+            /**
+             * Get event by ID. Usually in response to a broadcast.
+             * @param vendor_id
+             * @returns {offers}, err: {Promise}
+             */
+            near: function ( access_token, latitude, longitude ){
+                return $http.get(urlBase + 'v2/vendor/search/near', {
+                    params: {
+                        access_token: access_token,
+			latitude: latitude,
+			longitude: longitude
+                    }
+                }).then(function(resp){
+                    return resp;
+                }, function(error){
+                    return $q.reject(error);
+                });
+            },
+		geofenceCreate: function( access_token, vendor_id ){
+		
+                return $http.get(urlBase + 'v2/vendor/geofence/autocreate', {
+                    params: {
+                        access_token: access_token,
+			vendor_id:vendor_id    
+			}
+                }).then(function(resp){
+                    return resp;
+                }, function(error){
+                    return $q.reject(error);
+                });
+		}
         };
         return api;
 });

@@ -1,7 +1,9 @@
 angular.module( 'clozerrWeb.admin', [
   'ui.router',
   'placeholders',
-  'clozerrWeb.admin.events'
+  'clozerrWeb.admin.events',
+  'clozerrWeb.admin.reports',
+  'clozerrWeb.admin.geofencing'
 ])
 
 .config(function config( $stateProvider ) {

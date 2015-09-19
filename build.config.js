@@ -75,12 +75,16 @@ module.exports = {
       'vendor/ng-file-upload/ng-file-upload-all.min.js',
       'vendor/angular-ui-scrollpoint/dist/scrollpoint.js',
       'vendor/angular-scroll/angular-scroll.min.js',
+      "vendor/angular-chart/angular-chart.min.js",
+      "vendor/chart.js/chart.js",
+      "vendor/Chart.js/dist/Chart.min.js",
       "vendor/angular-snapscroll/dist/angular-snapscroll.min.js"
     ],
     css: [
       'vendor/angular-ui-notification/dist/angular-ui-notification.min.css',
       'vendor/angular-loading-bar/build/loading-bar.css',
       'vendor/angular-ui-bootstrap-datetimepicker/datetimepicker.css'
+      //"vendor/angular-chart/angular-chart.min.css",
     ],
     assets: [
     ]

@@ -32,7 +32,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
         name: '',
         phone: '',
         category: '',
-		settings:{policy:'',viewState:{placeholder:'',active:true}},
+		settings:{policy:'',viewState:{placeholder:'',active:true}, stampsReset:{totalStamps:0, active:false}, checkins:{ expiry:60 * 60 * 1000 } },
 		beacons:{major:0, minor:0},
 		description: '',
 		qrcodes:[]
@@ -50,9 +50,10 @@ angular.module( 'clozerrWeb.dashboard.profile', [
       });
 
         $scope.$watch('location.details', function(newVal, oldVal){
-            if(newVal.hasOwnProperty('geometry')) {
-                $scope.data.location = [newVal.geometry.location.A, newVal.geometry.location.F];
-            }
+		console.log( newVal );
+		if(newVal.hasOwnProperty('geometry')) {
+			$scope.data.location = [newVal.geometry.location.G, newVal.geometry.location.K];
+		}
         });
 
         $scope.saveDetails = function() {
@@ -85,9 +86,9 @@ angular.module( 'clozerrWeb.dashboard.profile', [
 		};
 
         $scope.upload = function (files, policy) {
-            if (files && files.length) {
+            if (files) {
 
-                    var file = files[0];
+                    var file = files;
                     Upload.upload({
                         url: 'https://clozerr.s3.amazonaws.com/', //S3 upload url including bucket name
                         method: 'POST',
@@ -132,7 +133,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                     img.src = fr.result; // is the data URL because called with readAsDataURL
                 };
                 if (file){
-                    fr.readAsDataURL(file[0]); // I'm using a <input type="file"> for demonstrating
+                    fr.readAsDataURL(file); // I'm using a <input type="file"> for demonstrating
                 }
             }
 
@@ -155,13 +156,26 @@ angular.module( 'clozerrWeb.dashboard.profile', [
                             Notification.success("Click Save to upload image.");
                         }
                     };
+			
                     img.src = fr.result; // is the data URL because called with readAsDataURL
                 };
                 if (file){
-                    fr.readAsDataURL(file[0]); // I'm using a <input type="file"> for demonstrating
+			console.log( file );
+                    fr.readAsDataURL(file); // I'm using a <input type="file"> for demonstrating
                 }
             }
 
         });
+}).directive('expiryFormatter', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, element, attrs, controller) {
+     controller.$formatters.push(function(value) {
+        return value / (60 * 1000);
+      });
+     controller.$parsers.push(function(value) {
+        return value * 60 * 1000;
+     });
+    }
+  };
 });
-

@@ -23,8 +23,13 @@ angular.module( 'clozerrWeb.dashboard.feedback', [
 
       function loadQuestions () {
         api.vendor.details(utils.profile.vendor_id).then(function(data){
-          $scope.questions = data.question;
-        });
+		if( data.settings.feedback && data.settings.feedback.questions ){
+			$scope.questions = data.settings.feedback.questions;
+		}
+		else{
+			$scope.questions = [];
+		}
+	});
       }
       loadQuestions();
 
@@ -34,15 +39,16 @@ angular.module( 'clozerrWeb.dashboard.feedback', [
       };
         $scope.deleteQuestion = function (index) {
             pendingChanges = true;
-            $scope.questions.splice(index, 1);
+            console.log( $scope.questions );
+		$scope.questions.splice(index, 1);
         };
 
         $scope.saveQuestions = function () {
             var data = {
-                question: $scope.questions
+                settings: { feedback: { questions: $scope.questions, params:{} } }
             };
             api.vendor.edit(utils.token, utils.profile.vendor_id, data).then(function(res){
-                $scope.questions = res.question;
+                $scope.questions = res.settings.feedback.questions;
                 pendingChanges = false;
                 Notification.success('Saved !');
             });
@@ -74,9 +80,8 @@ angular.module( 'clozerrWeb.dashboard.feedback', [
             return new Array(num);
         };
         $scope.reviews = [];
-        api.vendor.reviews(utils.token, utils.profile.vendor_id).then(function(data){
-        //api.vendor.reviews('4dd2cee48ddecfd9ae6e6a120d410c97', '55293297b6cd430f332841c4').then(function(data){
-            $scope.reviews = data ;
+        api.vendor.feedback(utils.token, utils.profile.vendor_id).then(function(data){
+            $scope.reviews = data;
         });
 
 })

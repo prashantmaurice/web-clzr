@@ -19,7 +19,8 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
 })
 
 .controller( 'DashboardRewardsCtrl', function DashboardRewardsCtrl( $scope, api, utils, Notification ) {
-  // This is simple a demo for UI Boostrap. 
+  // This is simple a demo for UI Boostrap.
+  function initRewards(){ 
   $scope.rewards = {
     welcomeReward : {
       type: "S0",
@@ -89,7 +90,9 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
       }
     }
   };
+	}
 
+	initRewards();
   $scope.days = {0:false,1:false,2:false,3:false,4:false,5:false,6:false};
   function processDays () {
     var days = [];
@@ -108,8 +111,10 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
   }
 
   function loadS0Offers () {
+	
     api.offer.all(utils.profile.vendor_id).then(function (offers) {
-      angular.forEach(offers, function (offer) {
+      initRewards();
+	angular.forEach(offers, function (offer) {
         if (offer.type == "S0") {
           if(offer.params){
             $scope.rewards[offer.params.type] = offer;
@@ -124,18 +129,22 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
   $scope.saveReward = function (reward) {
     processDays();
 	console.log( reward );
+
+	$scope.waitingForServer = true;
     if (reward._id) {
       //Edit reward
       var id = reward._id;
       delete(reward._id);
       delete(reward.__v);
-
+	
       api.offer.edit(utils.token, id, reward).then(function(resp){
         Notification.success('Reward saved !');
         loadS0Offers();
+	$scope.waitingForServer = false;
       }, function(error){
         Notification.error(error);
         console.log(error);
+	$scope.waitingForServer = false;
       });
     } else {
       //Create reward
@@ -144,11 +153,33 @@ angular.module( 'clozerrWeb.dashboard.rewards', [
       }).then(function(result){
         Notification.success('Reward saved!');
         console.log(result);
+	loadS0Offers();
+	$scope.waitingForServer = false;
       }, function(error){
         Notification.error(error);
         console.log(error);
+	$scope.waitingForServer = false;
       });
     }
+  };
+
+  $scope.deleteReward = function (reward){
+	console.log("deleting");
+	console.log( reward );
+	if( !reward._id ){
+		return;
+	}
+	
+	api.offer.deleteFromVendor( utils.token, utils.profile.vendor_id, reward._id ).then( function(resp){
+		Notification.success('Reward saved!');
+		console.log(resp);
+		loadS0Offers();
+		$scope.waitingForServer = false;
+	}, function( error ){
+		Notification.error(error);
+		console.log(error);
+		$scope.waitingForServer = false;
+	});
   };
 
   $scope.openCalendar = function(e, date) {

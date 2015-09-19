@@ -17,7 +17,7 @@
 	</div>
 	<div class="box-body body-align-left">
 		<form class="form-horizontal welcome-reward-form reward-form" role="form">
-		<fieldset>
+		<fieldset ng-disabled="waitingForServer">
 
 		<!-- Form Name -->
 		<legend>Recruit new club members and give them a warm welcome</legend>
@@ -78,6 +78,7 @@
 	</div>
 	<div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+	    <button type="submit" class="btn btn-danger pull-left" ng-click="deleteReward(rewards.welcomeReward)" ng-autodisable>Remove</button>
 	    <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.welcomeReward)">Save</button>
 	  </div><!-- /.box-footer -->
 </div>
@@ -90,7 +91,7 @@
     </div>
     <div class="box-body body-align-left">
         <form class="form-horizontal limited-time-form reward-form" role="form">
-            <fieldset>
+            <fieldset ng-disabled="waitingForServer">
 
                 <!-- Form Name -->
                 <legend>Create rewards that lasts for a limited period of time</legend>
@@ -128,7 +129,7 @@
 	</div>
 	<div class="box-body body-align-left">
 		<form class="form-horizontal limited-customers-form reward-form" role="form">
-			<fieldset>
+			<fieldset ng-disabled="waitingForServer">
 
 				<!-- Form Name -->
 				<legend>Create rewards that are available for a limited number of customers</legend>
@@ -153,6 +154,7 @@
 	</div>
 	<div class="box-footer">
 		<!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+	    	<button type="submit" class="btn btn-danger pull-left" ng-click="deleteReward(rewards.limitedCustomer)" ng-autodisable>Remove</button>
 		<button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.limitedCustomer)" ng-autodisable>Save</button>
 	</div><!-- /.box-footer -->
 </div>
@@ -166,7 +168,7 @@
 	<!-- form start -->
 	  <div class="box-body body-align-left">
 	  		<form class="form-horizontal reward-form happy-hour-reward-form">
-				<fieldset>
+				<fieldset ng-disabled="waitingForServer">
 
 				<!-- Form Name -->
 				<legend>Give incentives to your customers to come in during typically slow hours</legend>
@@ -240,12 +242,12 @@
 				  <label class="col-md-3 control-label">Select your slow days</label>
 				  <div class="col-md-9">
                       <div class="btn-group">
-                          <label class="btn btn-default btn-circle" ng-model="days['0']" btn-checkbox>M</label>
-                          <label class="btn btn-default btn-circle" ng-model="days['1']" btn-checkbox>T</label>
-                          <label class="btn btn-default btn-circle" ng-model="days['2']" btn-checkbox>W</label>
-                          <label class="btn btn-default btn-circle" ng-model="days['3']" btn-checkbox>T</label>
-                          <label class="btn btn-default btn-circle" ng-model="days['4']" btn-checkbox>F</label>
-                          <label class="btn btn-default btn-circle" ng-model="days['5']" btn-checkbox>S</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['0']" btn-checkbox>S</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['1']" btn-checkbox>M</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['2']" btn-checkbox>T</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['3']" btn-checkbox>W</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['4']" btn-checkbox>T</label>
+                          <label class="btn btn-default btn-circle" ng-model="days['5']" btn-checkbox>F</label>
                           <label class="btn btn-default btn-circle" ng-model="days['6']" btn-checkbox>S</label>
                       </div>
 				  </div>
@@ -265,6 +267,7 @@
 	  </div><!-- /.box-body -->
 	  <div class="box-footer">
 	    <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+	    <button type="submit" class="btn btn-danger pull-left" ng-click="deleteReward(rewards.happyHour)" ng-autodisable>Remove</button>
 	    <button type="submit" class="btn btn-info pull-right" ng-click="saveReward(rewards.happyHour)" ng-autodisable>Save</button>
 	  </div><!-- /.box-footer -->
 </div>
@@ -278,7 +281,7 @@
 	</div>
 	<div class="box-body body-align-left">
 		<form class="form-horizontal facebook-checkin-reward-form reward-form">
-		<fieldset>
+		<fieldset ng-disabled="waitingForServer">
 
 		<!-- Form Name -->
 		<legend>Encourage customers to check in with Facebook and maximize your social media exposure.</legend>
@@ -356,7 +359,7 @@
 	</div>
 	<div class="box-body body-align-left">
 		<form class="form-horizontal facebook-referral-reward-form reward-form">
-		<fieldset>
+		<fieldset ng-disabled="waitingForServer">
 
 		<!-- Form Name -->
 		<legend>Incentivize your customers to invite their friends to your business</legend>
@@ -432,7 +435,7 @@
 	</div>
 	<div class="box-body body-align-left">
 		<form class="form-horizontal facebook-referral-reward-form reward-form">
-		<fieldset>
+		<fieldset ng-disabled="waitingForServer">
 
 		<!-- Form Name -->
 		<legend>Incentivize your customers to invite their friends to your business</legend>
