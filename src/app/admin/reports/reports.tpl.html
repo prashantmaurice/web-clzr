@@ -1,0 +1,37 @@
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-aqua"><i class="fa fa-user-secret"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-number">Analytics Control Panel</span>
+				<span class="info-box-text">Live stream URL hits.( Filters &amp; Maps coming soon )</span>
+			</div><!-- /.info-box-content -->
+		</div>
+	</div>
+</div>
+
+<!--Birthday special-->
+<div class="box box-info " >
+	<div class="box-header with-border" >
+		<i class="d fa fa-user heading-text"></i><div class="box-title heading-text">Installs</div>
+		<br/><span>Installs by date.</span>
+		<!--<div class="box-tools pull-right">-->
+
+		<!--</div>-->
+	</div><!-- /.box-header -->
+	<div >
+		<div class="box-body table-responsive body-align-left">
+			
+			<canvas id="line" class="chart chart-line" data="install_data" labels="install_labels" legend="true" series="install_series" click="onClick">
+			</canvas> 
+			
+			<canvas id="line" class="chart chart-line" data="views_data" labels="views_labels" legend="true" series="views_series" click="onClick">
+			</canvas> 
+			
+			<canvas id="line" class="chart chart-line" data="active_data" labels="active_labels" legend="true" series="active_series" click="onClick">
+			</canvas> 
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,69 @@
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-aqua"><i class="fa fa-user-secret"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-number">Analytics Control Panel</span>
+				<span class="info-box-text">Live stream URL hits.( Filters &amp; Maps coming soon )</span>
+			</div><!-- /.info-box-content -->
+		</div>
+	</div>
+</div>
+
+<!--Birthday special-->
+<div class="box box-info " >
+	<div class="box-header with-border" >
+		<i class="d fa fa-user heading-text"></i><div class="box-title heading-text">Installs</div>
+		<br/><span>Installs by date.</span>
+		<!--<div class="box-tools pull-right">-->
+
+		<!--</div>-->
+	</div><!-- /.box-header -->
+	<div >
+		<div class="box-body table-responsive body-align-left">
+			
+			<map center="13.079445, 80.269357" zoom="12" maytypeid="TERRAIN" on-dragend="onDrag()">
+    				<shape name="circle" ng-repeat="geofence in geofences" stroke-color="#FF0000" stroke-opacity="0.8" stroke-weight="2" fill-color="#FF0000" fill-opacity="0.35" center="{{ geofence.location }}" radius="{{ geofence.radius }}">
+    				</shape>
+				<div ng-repeat="vendor in vendors">
+  					<marker id="{{$index}}" position="{{vendor.location}}" on-click="showInfoWindow( event, {{$index}})"></marker>
+					<info-window id="{{$index}}" position="{{vendor.location}}" visible-on-marker="{{$index}}">
+      						<span>{{vendor.name}}</span>
+    					</info-window>
+				</div>
+			</map>	
+
+		</div>
+
+	</div>
+</div>
+
+<div class="box box-info " >
+	<div class="box-header with-border" >
+		<i class="d fa fa-user heading-text"></i><div class="box-title heading-text">Vendors</div>
+		<br/><span>Geofence status of vendors.</span>
+		<!--<div class="box-tools pull-right">-->
+		<!--</div>-->
+	</div><!-- /.box-header -->
+	<div >
+		<div class="box-body table-responsive body-align-left">
+			<table class="table table-hover">
+				<tbody><tr>
+					<th>Name</th>
+					<th>Geofence</th>
+				</tr>
+				<tr ng-repeat="vendor in vendors">
+					<td ng-bind="vendor.name"></td>
+					<td>
+						<div ng-show="vendor.has_geofence" class="btn btn-primary" ng-click="centerVendor( vendor )">Show</div>
+						<div ng-show="!vendor.has_geofence" class="btn btn-primary" ng-click="createGeofence( vendor )">Create</div>
+					</td>
+				</tr>
+
+				</tbody></table>
+			</table>
+		</div>
+
+	</div>
+</div>
