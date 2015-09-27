@@ -6,7 +6,7 @@ angular.module( 'clozerrWeb.dashboard', [
   'clozerrWeb.dashboard.loyalty',
   'clozerrWeb.dashboard.campaigns',
   'clozerrWeb.dashboard.customers',
-  'clozerrWeb.dashboard.review',
+  'clozerrWeb.dashboard.feedback',
   'clozerrWeb.dashboard.profile',
   'clozerrWeb.dashboard.analytics',
   'clozerrWeb.dashboard.promote'

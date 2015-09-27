@@ -9,7 +9,7 @@ angular.module( 'clozerrWeb.dashboard.feedback', [
     views: {
       "dashboard-main": {
         controller: 'DashboardFeedbackCtrl',
-        templateUrl: 'dashboard/review/review.tpl.html'
+        templateUrl: 'dashboard/feedback/feedback.tpl.html'
       }
     },
     data:{ pageTitle: 'Feedback' }
