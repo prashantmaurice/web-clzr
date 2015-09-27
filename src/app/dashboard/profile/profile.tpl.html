@@ -1,18 +1,83 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-number">Express yourself !</span>
-                <span class="info-box-text">Add details about your business</span>
-            </div><!-- /.info-box-content -->
+        <div class="header-page">
+            <span class="info-box-number">Express yourself !</span>
+            <span class="info-box-text">Add details about your business</span>
         </div>
     </div>
 </div>
 
-<div class="row equal">
+<div class="col-md-12 col-sm-12 col equal">
+    <div class="box2 box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">About</h3>
+            <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
+        </div><!-- /.box-header -->
+        <div class="box-body body-align-left ">
+            <form role="form">
+                <fieldset>
+
+                    <div class="form-group">
+                        <label class=" control-label" for="businessName">Name</label>
+                        <div >
+                            <input ng-model="data.name" id="businessName" name="businessName" type="text" placeholder="Business name" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                        <label class=" control-label" for="category">Category</label>
+                        <div class="">
+                            <!--<select ng-model="data.category" id="category" name="category" class="form-control">-->
+                            <!--<option value="1">Cat1</option>-->
+                            <!--<option value="2">Cat2</option>-->
+                            <!--</select>-->
+                            <input ng-model="data.category" id="category" name="category" class="form-control" />
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="phone">Phone number</label>
+                        <div class="">
+                            <input ng-model="data.phone" id="phone" name="phone" type="text" placeholder="9874563210" class="form-control input-md" required="">
+                            <span class="help-block">Just the 10 digit phone number</span>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="location">Location</label>
+                        <div class="">
+                            <input ng-autocomplete ng-model="data.address" options="location.options" details="location.details" id="location" name="location" type="text" placeholder="Type the address" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" control-label" for="policy">Policy</label>
+                        <div class="">
+                            <input ng-model="data.settings.policy" id="policy" name="policy" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class=" control-label" for="businessName">Description</label>
+                        <div >
+                            <textarea ng-model="data.description" id="businessName" name="businessName" type="text" placeholder="Business name" class="form-control input-md" required="">
+                            </textarea>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info col equal">
+        <div class="box2 box-info col equal">
             <div class="box-header with-border">
                 <h3 class="box-title">Your Logo</h3>
             </div><!-- /.box-header -->
@@ -26,95 +91,6 @@
             </div>
         </div>
 
-    </div>
-    <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title">Business details</h3>
-            </div><!-- /.box-header -->
-            <div class="box-body body-align-left ">
-                <form role="form">
-                    <fieldset>
-
-                        <div class="form-group">
-                            <label class=" control-label" for="businessName">Name</label>
-                            <div >
-                                <input ng-model="data.name" id="businessName" name="businessName" type="text" placeholder="Business name" class="form-control input-md" required="">
-
-                            </div>
-                        </div>
-
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class=" control-label" for="category">Category</label>
-                            <div class="">
-                                <!--<select ng-model="data.category" id="category" name="category" class="form-control">-->
-                                <!--<option value="1">Cat1</option>-->
-                                <!--<option value="2">Cat2</option>-->
-                                <!--</select>-->
-                                <input ng-model="data.category" id="category" name="category" class="form-control" />
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class=" control-label" for="phone">Phone number</label>
-                            <div class="">
-                                <input ng-model="data.phone" id="phone" name="phone" type="text" placeholder="9874563210" class="form-control input-md" required="">
-                                <span class="help-block">Just the 10 digit phone number</span>
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class=" control-label" for="location">Location</label>
-                            <div class="">
-                                <input ng-autocomplete ng-model="data.address" options="location.options" details="location.details" id="location" name="location" type="text" placeholder="Type the address" class="form-control input-md" required="">
-
-                            </div>
-                        </div>
-						<div class="form-group">
-                            <label class=" control-label" for="policy">Policy</label>
-                            <div class="">
-                                <input ng-model="data.settings.policy" id="policy" name="policy" class="form-control" />
-                            </div>
-                        </div> 
-
-
-                    </fieldset>
-                </form>
-
-            </div><!-- /.box-body -->
-            <div class="box-footer">
-                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title">About</h3>
-            </div><!-- /.box-header -->
-            <div class="box-body body-align-left ">
-                <form role="form">
-                    <fieldset>
-
-                        <div class="form-group">
-                            <label class=" control-label" for="businessName">Description</label>
-                            <div >
-                                <textarea ng-model="data.description" id="businessName" name="businessName" type="text" placeholder="Business name" class="form-control input-md" required="">
-								</textarea>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-
-            </div><!-- /.box-body -->
-            <div class="box-footer">
-                <button ng-click="saveDetails()" ng-autodisable type="submit" class="btn btn-info pull-right" >Save</button>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -134,7 +110,7 @@
                 <button class="btn btn-info pull-right" ng-autodisable ng-click="upload(app, appPolicy)">Save</button>
             </div>
         </div>
-        <div class="box box-info">
+        <div class="box2 box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">Beacon Details</h3>
             </div><!-- /.box-header -->
@@ -195,7 +171,7 @@
 <div class="row">
 
     <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info">
+        <div class="box2 box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">QR Codes</h3>
             </div><!-- /.box-header -->
@@ -224,7 +200,7 @@
         </div>
     </div>
     <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info">
+        <div class="box2 box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">View State</h3>
             </div><!-- /.box-header -->
@@ -258,7 +234,7 @@
 <div class="row">
 
     <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info">
+        <div class="box2 box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">Stamps Reset Policy</h3>
             </div><!-- /.box-header -->
@@ -289,7 +265,7 @@
         </div>
     </div>
     <div class="col-md-6 col-sm-12 col equal">
-        <div class="box box-info">
+        <div class="box2 box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">Checkin Settings</h3>
             </div><!-- /.box-header -->
