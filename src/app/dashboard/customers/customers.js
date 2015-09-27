@@ -1,19 +1,19 @@
 
-angular.module( 'clozerrWeb.dashboard.clubmembers', [
+angular.module( 'clozerrWeb.dashboard.customers', [
   'ui.router',
   'placeholders'
 ])
 
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'dashboard.clubmembers', {
-    url: '/clubmembers',
+  $stateProvider.state( 'dashboard.customers', {
+    url: '/customers',
     views: {
       "dashboard-main": {
         controller: 'DashboardClubmembersCtrl',
-        templateUrl: 'dashboard/clubmembers/clubmembers.tpl.html'
+        templateUrl: 'dashboard/customers/customers.tpl.html'
       }
     },
-    data:{ pageTitle: 'Clubmembers' }
+    data:{ pageTitle: 'Club members' }
   });
 })
 

@@ -16,7 +16,7 @@ angular.module( 'clozerrWeb', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/dashboard/promote' );
+  $urlRouterProvider.otherwise( '/dashboard/main' );
 })
 
 .run( function run ($rootScope, utils, $state) {

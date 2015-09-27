@@ -4,7 +4,7 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li ui-sref-active="active" class="sidebar-brand sidebar-brand-large">
-                <img class="brand-logo" src="assets/img/logo_300.png">
+                <img class="brand-logo" src="assets/img/logo_300_white.png">
             </li>
             <li ui-sref-active="active" class="sidebar-brand-small">
                 <img class="img-responsive" src="assets/img/icons/apple-touch-icon-precomposed.png">
@@ -79,12 +79,11 @@
                     </a>
                 </li>
             </ul>
-          
-          <h1 ng-bind="dashboardPageHeading">Dashboard</h1>
-          
+          <div class="pageHeading">
+            <span ng-bind="dashboardPageHeading">Dashboard</span>
+          </div>
         </div>
     </div>
-    <hr/>
 
     <div id="page-content-wrapper"  class="container-fluid">
         <div ui-view="dashboard-main"></div>

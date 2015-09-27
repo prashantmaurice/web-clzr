@@ -13,7 +13,7 @@ angular.module( 'clozerrWeb.dashboard.analytics', [
         templateUrl: 'dashboard/analytics/analytics.tpl.html'
       }
     },
-    data:{ pageTitle: 'Analytics' }
+    data:{ pageTitle: 'Downloads' }
   });
 })
 

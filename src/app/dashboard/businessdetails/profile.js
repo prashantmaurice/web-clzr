@@ -4,7 +4,7 @@ angular.module( 'clozerrWeb.dashboard.profile', [
     'ngFileUpload'
 ]).config(function config( $stateProvider ) {
   $stateProvider.state( 'dashboard.profile', {
-    url: '/profile',
+    url: '/businessdetails',
     views: {
       "dashboard-main": {
         controller: 'DashboardProfileCtrl',

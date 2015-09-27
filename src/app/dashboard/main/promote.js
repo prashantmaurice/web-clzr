@@ -5,11 +5,11 @@ angular.module( 'clozerrWeb.dashboard.promote', [
 
 .config(function config( $stateProvider ) {
   $stateProvider.state( 'dashboard.promote', {
-    url: '/promote',
+    url: '/main',
     views: {
       "dashboard-main": {
         controller: 'DashboardPromoteCtrl',
-        templateUrl: 'dashboard/promote/promote.tpl.html'
+        templateUrl: 'dashboard/main/promote.tpl.html'
       }
     },
     data:{ 

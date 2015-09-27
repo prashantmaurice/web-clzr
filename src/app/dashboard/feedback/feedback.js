@@ -5,11 +5,11 @@ angular.module( 'clozerrWeb.dashboard.feedback', [
 
 .config(function config( $stateProvider ) {
   $stateProvider.state( 'dashboard.feedback', {
-    url: '/feedback',
+    url: '/reviews',
     views: {
       "dashboard-main": {
         controller: 'DashboardFeedbackCtrl',
-        templateUrl: 'dashboard/feedback/feedback.tpl.html'
+        templateUrl: 'dashboard/review/review.tpl.html'
       }
     },
     data:{ pageTitle: 'Feedback' }
